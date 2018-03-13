@@ -13,3 +13,11 @@ To start developing a third-party application with Visual Studio you need:
 4. Add to your project a reference to the module that you want work with, for sales add `VndBE100.DLL`.
 5. Add to your project a reference to `StdBE100.DLL`. This will provide access to enumeration types and some base entities.
 6. Finally you can start coding your project.
+
+### Contributing and Feedback
+Everyone is free to contribute to the repository.
+
+Any bugs detected in the scripts can be reported in the Issues section of this repository.
+
+### License
+Unless otherwise specified, the code samples are released under the MIT license.
