@@ -17,7 +17,7 @@ To start developing a third-party application with Visual Studio you need:
 ### Contributing and Feedback
 Everyone is free to contribute to the repository.
 
-Any bugs detected in the scripts can be reported in the Issues section of this repository.
+Any bugs detected in the code samples can be reported in the *Issues* section of this repository.
 
 ### License
 Unless otherwise specified, the code samples are released under the MIT license.
