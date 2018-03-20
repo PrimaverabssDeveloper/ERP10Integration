@@ -139,7 +139,7 @@
             // panel1
             // 
             this.panel1.Controls.Add(this.CreateInvoice);
-            this.panel1.Location = new System.Drawing.Point(233, 110);
+            this.panel1.Location = new System.Drawing.Point(221, 111);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(350, 205);
             this.panel1.TabIndex = 17;
@@ -147,12 +147,15 @@
             // 
             // CreateInvoice
             // 
+            this.CreateInvoice.BackColor = System.Drawing.Color.DodgerBlue;
+            this.CreateInvoice.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.CreateInvoice.ForeColor = System.Drawing.Color.White;
             this.CreateInvoice.Location = new System.Drawing.Point(30, 116);
             this.CreateInvoice.Name = "CreateInvoice";
             this.CreateInvoice.Size = new System.Drawing.Size(298, 64);
             this.CreateInvoice.TabIndex = 8;
             this.CreateInvoice.Text = "Create Sales Invoice";
-            this.CreateInvoice.UseVisualStyleBackColor = true;
+            this.CreateInvoice.UseVisualStyleBackColor = false;
             this.CreateInvoice.Click += new System.EventHandler(this.CreateInvoice_Click);
             // 
             // Login

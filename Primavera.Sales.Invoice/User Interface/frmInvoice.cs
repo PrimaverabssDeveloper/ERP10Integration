@@ -86,16 +86,6 @@ namespace Primavera.Sales.Invoice
 
                         linhas = invoice.Linhas;
                         linhas.GetEdita(1).Desconto1 = 10;
-
-                        // User custom flied
-                        StdBECampo campo = new StdBECampo();
-
-                        campo.Nome = "CDU_LinVar1";
-                        campo.Valor = 12;
-                        campo.Tipo = StdBETipos.EnumTipoCampo.tcText;
-
-                        linhas.GetEdita(1).CamposUtil.Insere(campo);
-
                     }
 
                     if (txtobs.Text.Length > 0)
@@ -128,10 +118,6 @@ namespace Primavera.Sales.Invoice
             catch (Exception ex)
             {
                 MessageBox.Show("Unable to save document. \n" + ex.Message);
-            }
-            finally
-            {
-
             }
         }
 
@@ -176,8 +162,8 @@ namespace Primavera.Sales.Invoice
 
                 if (campos != null)
                 {
-                    txtNome.Text = campos[1].Valor;
-                    txtNif.Text = campos[2].Valor;
+                    txtNome.Text = campos[0].Valor;
+                    txtNif.Text = campos[1].Valor;
                 }
             }
         }

@@ -15,18 +15,12 @@ namespace Primavera.Sales.Invoice
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-
-            //Este handler tem que ser adicionado antes de existir qualquer referência para classes existentes nos Interop's,
-            //isto é, no método Main() da aplicação NÃO PODERÁ EXISTIR DECLARAÇÕES DE VARIÁVEIS DE TIPOS EXISTENTES NOS INTEROPS.
-            //Com este método, na pasta da aplicação não deverão existir os Interops e as referências para os mesmos deverão ser
-            //adicionadas com Copy Local = False e Specific Version = false.
             AppDomain.CurrentDomain.AssemblyResolve += new ResolveEventHandler(CurrentDomain_AssemblyResolve);
-
             Application.Run(new Login());
         }
 
         /// <summary>
-        /// Método para resolução das assemblies.
+        /// Resolving Assembly
         /// </summary>
         /// <param name="sender">Application</param>
         /// <param name="args">Resolving Assembly Name</param>
