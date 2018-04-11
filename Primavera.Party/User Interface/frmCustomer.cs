@@ -5,21 +5,16 @@ using System.Windows.Forms;
 using BasBE100;
 using StdBE100;
 
-namespace Primavera.Base.Party
+namespace Primavera.Party
 {
-    public partial class FrmCustomer : Form
+    public partial class frmCustomer : Primavera.Party.frmPartyBase
     {
-        public FrmCustomer()
+        public frmCustomer()
         {
             InitializeComponent();
         }
 
-        /// <summary>
-        /// Create a new customer on the system.
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void CmdSave_Click(object sender, EventArgs e)
+        public override void OnSave()
         {
             if (Convert.ToBoolean(PriEngine.Engine.Base.Clientes.NumeroContribuintesRepetidos(txtNif.Text)) && !chkEdit.Checked)
             {
@@ -32,6 +27,7 @@ namespace Primavera.Base.Party
                 customer.Nome = TxtDescription.Text;
                 customer.Cliente = txtName.Text;
                 customer.Morada = txtAdress.Text;
+                customer.Morada2 = txtAdress2.Text;
                 customer.Telefone = txtphone.Text;
                 customer.NumContribuinte = txtNif.Text;
                 customer.Moeda = "EUR";
@@ -49,17 +45,20 @@ namespace Primavera.Base.Party
                     MessageBox.Show("Unable to save client. \n" + ex.Message);
                 }
             }
+
+            base.OnSave();
         }
 
-        /// <summary>
-        /// Load the entity data.
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void txtName_Validated(object sender, EventArgs e)
+        public override void OnF4Custumer()
+        {
+            PriEngine.Platform.Listas.GetF4SQL("Customer", "SELECT Cliente, Nome FROM CLIENTES ORDER BY cliente ASC", "Cliente", this, txtName);
+            base.OnF4Custumer();
+        }
+
+        public override void OnValidateParty()
         {
             BasBECliente customer = new BasBECliente();
-            StringBuilder CamposUtil= new StringBuilder();
+            StringBuilder CamposUtil = new StringBuilder();
             List<string> row = new List<string>();
 
             listViewCDU.Clear();
@@ -86,7 +85,7 @@ namespace Primavera.Base.Party
                         // load user fields
                         foreach (StdBECampo objCDU in customer.CamposUtil)
                         {
-                            ColumnHeader columnHeader =  new ColumnHeader
+                            ColumnHeader columnHeader = new ColumnHeader
                             {
                                 Name = objCDU.Nome,
                                 Text = objCDU.Nome,
@@ -94,41 +93,21 @@ namespace Primavera.Base.Party
                             };
 
                             listViewCDU.Columns.Add(columnHeader);
-                            
+
                             row.Add(Convert.ToString(objCDU.Valor));
                         }
 
                         ListViewItem listViewItem = new ListViewItem(row.ToArray());
-                        listViewCDU.Items.Add(listViewItem);  
+                        listViewCDU.Items.Add(listViewItem);
                     }
                 }
-                catch(Exception ex)
+                catch (Exception ex)
                 {
-                    MessageBox.Show("It was not possible to load the entity. \n" + ex.Message);    
+                    MessageBox.Show("It was not possible to load the entity. \n" + ex.Message);
                 }
             }
 
-        }
-
-        /// <summary>
-        /// Close.
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void cmdCancel_Click(object sender, EventArgs e)
-        {
-            this.Close();
-            this.Dispose();
-        }
-
-        /// <summary>
-        /// Create a list of customers.
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void txtF4_Click(object sender, EventArgs e)
-        {
-            PriEngine.Platform.Listas.GetF4SQL("Customer", "SELECT Cliente, Nome FROM CLIENTES ORDER BY cliente ASC", "Cliente",this,txtName);
+            base.OnValidateParty();
         }
     }
 }

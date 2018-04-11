@@ -2,17 +2,23 @@
 using System.Text;
 using System.Windows.Forms;
 
-namespace Primavera.Base.Party
+namespace Primavera.Party
 {
     public partial class frmLogin : Form
     {
 
         #region "Demo Events"
 
-        private void CreateInvoice_Click(object sender, EventArgs e)
+        private void CreateCustomer_Click(object sender, EventArgs e)
         {
-            FrmCustomer customer = new FrmCustomer();
+            frmCustomer customer = new frmCustomer();
             customer.ShowDialog();
+        }
+
+        private void Supplier_Click(object sender, EventArgs e)
+        {
+            frmSupplier supplier = new frmSupplier();
+            supplier.ShowDialog();
         }
 
         #endregion

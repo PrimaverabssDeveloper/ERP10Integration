@@ -1,4 +1,4 @@
-﻿namespace Primavera.Base.Party
+﻿namespace Primavera.Party
 {
     partial class frmLogin
     {
@@ -38,7 +38,8 @@
             this.txtuser = new System.Windows.Forms.TextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.CreateInvoice = new System.Windows.Forms.Button();
+            this.Supplier = new System.Windows.Forms.Button();
+            this.CreateCustomer = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -128,7 +129,7 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = global::Primavera.Base.Party.Properties.Resources.Primavera_;
+            this.pictureBox1.Image = global::Primavera.Party.Properties.Resources.Primavera_;
             this.pictureBox1.Location = new System.Drawing.Point(29, 26);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(258, 69);
@@ -138,25 +139,39 @@
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.CreateInvoice);
+            this.panel1.Controls.Add(this.Supplier);
+            this.panel1.Controls.Add(this.CreateCustomer);
             this.panel1.Location = new System.Drawing.Point(221, 111);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(350, 205);
             this.panel1.TabIndex = 17;
             this.panel1.Visible = false;
             // 
-            // CreateInvoice
+            // Supplier
             // 
-            this.CreateInvoice.BackColor = System.Drawing.Color.DodgerBlue;
-            this.CreateInvoice.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.CreateInvoice.ForeColor = System.Drawing.Color.White;
-            this.CreateInvoice.Location = new System.Drawing.Point(30, 116);
-            this.CreateInvoice.Name = "CreateInvoice";
-            this.CreateInvoice.Size = new System.Drawing.Size(298, 64);
-            this.CreateInvoice.TabIndex = 8;
-            this.CreateInvoice.Text = "Create/Update Customer";
-            this.CreateInvoice.UseVisualStyleBackColor = false;
-            this.CreateInvoice.Click += new System.EventHandler(this.CreateInvoice_Click);
+            this.Supplier.BackColor = System.Drawing.Color.DodgerBlue;
+            this.Supplier.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Supplier.ForeColor = System.Drawing.Color.White;
+            this.Supplier.Location = new System.Drawing.Point(30, 35);
+            this.Supplier.Name = "Supplier";
+            this.Supplier.Size = new System.Drawing.Size(298, 64);
+            this.Supplier.TabIndex = 9;
+            this.Supplier.Text = "Create/Update Supplier";
+            this.Supplier.UseVisualStyleBackColor = false;
+            this.Supplier.Click += new System.EventHandler(this.Supplier_Click);
+            // 
+            // CreateCustomer
+            // 
+            this.CreateCustomer.BackColor = System.Drawing.Color.DodgerBlue;
+            this.CreateCustomer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.CreateCustomer.ForeColor = System.Drawing.Color.White;
+            this.CreateCustomer.Location = new System.Drawing.Point(30, 116);
+            this.CreateCustomer.Name = "CreateCustomer";
+            this.CreateCustomer.Size = new System.Drawing.Size(298, 64);
+            this.CreateCustomer.TabIndex = 8;
+            this.CreateCustomer.Text = "Create/Update Customer";
+            this.CreateCustomer.UseVisualStyleBackColor = false;
+            this.CreateCustomer.Click += new System.EventHandler(this.CreateCustomer_Click);
             // 
             // frmLogin
             // 
@@ -199,6 +214,7 @@
         private System.Windows.Forms.TextBox txtuser;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button CreateInvoice;
+        private System.Windows.Forms.Button CreateCustomer;
+        private System.Windows.Forms.Button Supplier;
     }
 }

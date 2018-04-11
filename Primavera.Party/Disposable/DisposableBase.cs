@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Primavera.Base.Party
+namespace Primavera.Party
 {
     /// <summary>
     /// Base class for disposable classes.

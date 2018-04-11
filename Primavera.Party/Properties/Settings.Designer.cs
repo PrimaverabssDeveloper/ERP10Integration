@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Primavera.Base.Party.Properties {
+namespace Primavera.Party.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
