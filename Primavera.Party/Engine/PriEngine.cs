@@ -4,7 +4,7 @@ using StdPlatBS100;
 using System;
 using static StdBE100.StdBETipos;
 
-namespace Primavera.Party
+namespace Primavera.BaseEntities
 {
     sealed class PriEngine: DisposableBase
     {

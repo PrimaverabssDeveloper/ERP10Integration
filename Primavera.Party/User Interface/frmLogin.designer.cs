@@ -1,4 +1,4 @@
-﻿namespace Primavera.Party
+﻿namespace Primavera.BaseEntities
 {
     partial class frmLogin
     {
@@ -129,7 +129,7 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = global::Primavera.Party.Properties.Resources.Primavera_;
+            this.pictureBox1.Image = global::Primavera.BaseEntities.Properties.Resources.Primavera_;
             this.pictureBox1.Location = new System.Drawing.Point(29, 26);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(258, 69);

@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Primavera.Party
+namespace Primavera.BaseEntities
 {
     public partial class frmPartyBase : Form
     {

@@ -1,4 +1,4 @@
-﻿namespace Primavera.Party
+﻿namespace Primavera.BaseEntities
 {
     partial class frmCustomer
     {

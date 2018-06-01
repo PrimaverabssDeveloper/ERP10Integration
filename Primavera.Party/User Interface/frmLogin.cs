@@ -2,7 +2,7 @@
 using System.Text;
 using System.Windows.Forms;
 
-namespace Primavera.Party
+namespace Primavera.BaseEntities
 {
     public partial class frmLogin : Form
     {

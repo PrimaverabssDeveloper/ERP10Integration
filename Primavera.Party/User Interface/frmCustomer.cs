@@ -5,9 +5,9 @@ using System.Windows.Forms;
 using BasBE100;
 using StdBE100;
 
-namespace Primavera.Party
+namespace Primavera.BaseEntities
 {
-    public partial class frmCustomer : Primavera.Party.frmPartyBase
+    public partial class frmCustomer : Primavera.BaseEntities.frmPartyBase
     {
         public frmCustomer()
         {
