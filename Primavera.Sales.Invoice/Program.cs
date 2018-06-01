@@ -31,10 +31,10 @@ namespace Primavera.Sales.Invoice
             
             System.Reflection.AssemblyName assemblyName;
             
-            const string PRIMAVERA_COMMON_FILES_FOLDER = "PRIMAVERA\\SG900"; 
+            const string PRIMAVERA_COMMON_FILES_FOLDER = "PRIMAVERA\\SG100\\Apl"; 
             
             assemblyName = new System.Reflection.AssemblyName(args.Name);
-            assemblyFullName = System.IO.Path.Combine(System.IO.Path.Combine(System.Environment.GetFolderPath(Environment.SpecialFolder.CommonProgramFilesX86), PRIMAVERA_COMMON_FILES_FOLDER), assemblyName.Name + ".dll");
+            assemblyFullName = System.IO.Path.Combine(System.IO.Path.Combine(System.Environment.GetFolderPath(Environment.SpecialFolder.ProgramFilesX86), PRIMAVERA_COMMON_FILES_FOLDER), assemblyName.Name + ".dll");
             
             if (System.IO.File.Exists(assemblyFullName))
                 return System.Reflection.Assembly.LoadFile(assemblyFullName);
