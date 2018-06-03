@@ -1,4 +1,5 @@
 ﻿using ErpBS100;
+using Primavera.Extensibility.Engine;
 using StdBE100;
 using StdPlatBS100;
 using System;
@@ -48,6 +49,20 @@ namespace Primavera.Sales.Invoice
 
             if (Plataforma.Inicializada)
             {
+                // Use this service to trigger the API events.
+                ExtensibilityService service = new ExtensibilityService();
+
+                // Suppress all message box events from the API.
+                //Plataforma.ExtensibilityLogger.AllowInteractivity = false;
+                service.InitServiceEngine(Plataforma, MotorLE);
+
+                // Check if service is operational
+                if (service.IsOperational)
+                {
+                    // Initialize and load all extensibility implementations
+                    service.ReloadMEF();
+                }
+
                 MotorLE.AbreEmpresaTrabalho(objTipoPlataforma, Company, User, Password, objStdTransac, "Default");
 
                 Platform = Plataforma;
