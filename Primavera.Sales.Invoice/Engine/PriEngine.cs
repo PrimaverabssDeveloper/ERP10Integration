@@ -53,13 +53,13 @@ namespace Primavera.Sales.Invoice
                 ExtensibilityService service = new ExtensibilityService();
 
                 // Suppress all message box events from the API.
-                //Plataforma.ExtensibilityLogger.AllowInteractivity = false;
+                // Plataforma.ExtensibilityLogger.AllowInteractivity = false;
                 service.InitServiceEngine(Plataforma, MotorLE);
 
                 // Check if service is operational
                 if (service.IsOperational)
                 {
-                    // Initialize and load all extensibility implementations
+                    // Inshore that all extensions are loaded.
                     service.ReloadMEF();
                 }
 
