@@ -38,6 +38,7 @@
             this.txtuser = new System.Windows.Forms.TextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.cmdCreateReversal = new System.Windows.Forms.Button();
             this.CreateInvoice = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
@@ -62,7 +63,7 @@
             this.cmdLogin.Location = new System.Drawing.Point(440, 273);
             this.cmdLogin.Name = "cmdLogin";
             this.cmdLogin.Size = new System.Drawing.Size(121, 29);
-            this.cmdLogin.TabIndex = 15;
+            this.cmdLogin.TabIndex = 3;
             this.cmdLogin.Text = "Login";
             this.cmdLogin.UseVisualStyleBackColor = false;
             this.cmdLogin.Click += new System.EventHandler(this.CmdLogin_Click);
@@ -107,7 +108,7 @@
             this.txtpass.Name = "txtpass";
             this.txtpass.PasswordChar = '*';
             this.txtpass.Size = new System.Drawing.Size(238, 22);
-            this.txtpass.TabIndex = 11;
+            this.txtpass.TabIndex = 1;
             // 
             // txtempresa
             // 
@@ -115,7 +116,7 @@
             this.txtempresa.Location = new System.Drawing.Point(323, 230);
             this.txtempresa.Name = "txtempresa";
             this.txtempresa.Size = new System.Drawing.Size(238, 22);
-            this.txtempresa.TabIndex = 9;
+            this.txtempresa.TabIndex = 2;
             this.txtempresa.Text = "DEMO";
             // 
             // txtuser
@@ -124,7 +125,7 @@
             this.txtuser.Location = new System.Drawing.Point(323, 160);
             this.txtuser.Name = "txtuser";
             this.txtuser.Size = new System.Drawing.Size(238, 22);
-            this.txtuser.TabIndex = 10;
+            this.txtuser.TabIndex = 0;
             // 
             // pictureBox1
             // 
@@ -138,6 +139,7 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.cmdCreateReversal);
             this.panel1.Controls.Add(this.CreateInvoice);
             this.panel1.Location = new System.Drawing.Point(221, 111);
             this.panel1.Name = "panel1";
@@ -145,12 +147,25 @@
             this.panel1.TabIndex = 17;
             this.panel1.Visible = false;
             // 
+            // cmdCreateReversal
+            // 
+            this.cmdCreateReversal.BackColor = System.Drawing.Color.DodgerBlue;
+            this.cmdCreateReversal.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cmdCreateReversal.ForeColor = System.Drawing.Color.White;
+            this.cmdCreateReversal.Location = new System.Drawing.Point(30, 105);
+            this.cmdCreateReversal.Name = "cmdCreateReversal";
+            this.cmdCreateReversal.Size = new System.Drawing.Size(298, 64);
+            this.cmdCreateReversal.TabIndex = 9;
+            this.cmdCreateReversal.Text = "Create Sales Reversal";
+            this.cmdCreateReversal.UseVisualStyleBackColor = false;
+            this.cmdCreateReversal.Click += new System.EventHandler(this.cmdCreateReversal_Click);
+            // 
             // CreateInvoice
             // 
             this.CreateInvoice.BackColor = System.Drawing.Color.DodgerBlue;
             this.CreateInvoice.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.CreateInvoice.ForeColor = System.Drawing.Color.White;
-            this.CreateInvoice.Location = new System.Drawing.Point(30, 116);
+            this.CreateInvoice.Location = new System.Drawing.Point(30, 27);
             this.CreateInvoice.Name = "CreateInvoice";
             this.CreateInvoice.Size = new System.Drawing.Size(298, 64);
             this.CreateInvoice.TabIndex = 8;
@@ -200,5 +215,6 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button CreateInvoice;
+		private System.Windows.Forms.Button cmdCreateReversal;
     }
 }

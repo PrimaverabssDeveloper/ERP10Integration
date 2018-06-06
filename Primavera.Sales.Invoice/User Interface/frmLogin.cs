@@ -16,6 +16,13 @@ namespace Primavera.Sales.Invoice
             createInvoice.Show();
         }
 
+		private void cmdCreateReversal_Click(object sender, EventArgs e)
+        {
+            frmInvoiceReversal objCreateReveral = new frmInvoiceReversal();
+
+            objCreateReveral.Show();
+        }
+
         #endregion
 
         #region "Login Events"
