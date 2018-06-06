@@ -119,6 +119,12 @@
     <Compile Include="User Interface\frmInvoice.designer.cs">
       <DependentUpon>frmInvoice.cs</DependentUpon>
     </Compile>
+    <Compile Include="User Interface\frmInvoiceReversal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="User Interface\frmInvoiceReversal.Designer.cs">
+      <DependentUpon>frmInvoiceReversal.cs</DependentUpon>
+    </Compile>
     <Compile Include="User Interface\frmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -137,6 +143,9 @@
     </Compile>
     <EmbeddedResource Include="User Interface\frmInvoice.resx">
       <DependentUpon>frmInvoice.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User Interface\frmInvoiceReversal.resx">
+      <DependentUpon>frmInvoiceReversal.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="User Interface\frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
