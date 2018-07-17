@@ -1,0 +1,13 @@
+Windows Registry Editor Version 5.00
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432NODE\PRIMAVERA\SGE100\Default\EXT]
+"Audit"="Primavera.ExtAudit100"
+"3rdParty"="TRUE"
+"Forms"="Primavera.ExtForms100"
+"Nome"="Exemplo Extensibilidade"
+"PercursoApl"="C:\\Program Files\\PRIMAVERA\\SG100\\APL\\"
+"PercursoDados"="C:\\Program Files\\PRIMAVERA\\SG100\\DADOS\\LE\\"
+"PercursoDadosComuns"="C:\\Program Files\\PRIMAVERA\\SG100\\DADOS\\"
+"PercursoMapas"="C:\\Program Files\\PRIMAVERA\\SG100\\MAPAS\\LE\\GCP\\"
+"Versao"="100"
+"Exec"="Ext3rdParty"
