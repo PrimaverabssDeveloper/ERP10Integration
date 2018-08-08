@@ -49,6 +49,8 @@ namespace Primavera.Sales.Invoice
 
             if (Plataforma.Inicializada)
             {
+                MotorLE.AbreEmpresaTrabalho(objTipoPlataforma, Company, User, Password, objStdTransac, "Default");
+
                 // Use this service to trigger the API events.
                 ExtensibilityService service = new ExtensibilityService();
 
@@ -62,8 +64,6 @@ namespace Primavera.Sales.Invoice
                     // Inshore that all extensions are loaded.
                     service.ReloadMEF();
                 }
-
-                MotorLE.AbreEmpresaTrabalho(objTipoPlataforma, Company, User, Password, objStdTransac, "Default");
 
                 Platform = Plataforma;
                 Engine = MotorLE;
