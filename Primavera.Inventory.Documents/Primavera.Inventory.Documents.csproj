@@ -60,7 +60,7 @@
       <Private>False</Private>
     </Reference>
     <Reference Include="IIntBS100">
-      <HintPath>..\..\..\..\..\Program Files (x86)\PRIMAVERA\SG100\Apl\IIntBS100.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\PRIMAVERA\SG100\Apl\IIntBS100.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="IInvBS100">
@@ -68,7 +68,7 @@
       <Private>False</Private>
     </Reference>
     <Reference Include="InvBE100">
-      <HintPath>..\..\..\..\..\Program Files (x86)\PRIMAVERA\SG100\Apl\InvBE100.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\PRIMAVERA\SG100\Apl\InvBE100.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="InvBS100">

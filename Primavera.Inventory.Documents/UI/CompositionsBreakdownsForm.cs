@@ -40,7 +40,7 @@ namespace Primavera.Inventory.Documents
                 docTypeTextBox.Focus();
                 docTypeDescriptionTextBox.Text = string.Empty;
             }
-            else docTypeDescriptionTextBox.Text = (string)PriEngine.Engine.Inventario.TabComposicoes.DaValorAtributo(docTypeTextBox.Text, "Descricao");
+            else docTypeDescriptionTextBox.Text = Convert.ToString(PriEngine.Engine.Inventario.TabComposicoes.DaValorAtributo(docTypeTextBox.Text, "Descricao"));
         }
 
         /// <summary>
@@ -73,14 +73,14 @@ namespace Primavera.Inventory.Documents
         /// <param name="e"></param>
         private void itemTextBox_Validating(object sender, CancelEventArgs e)
         {
-            if ((int)PriEngine.Engine.Base.Artigos.DaValorAtributo(itemTextBox.Text, "TipoComponente" ) != 2)
+            if (Convert.ToInt32(PriEngine.Engine.Base.Artigos.DaValorAtributo(itemTextBox.Text, "TipoComponente" ) != 2))
             {
                 ShowMessage("The item is not of the assembly item type.");
                 itemTextBox.Clear();
                 itemTextBox.Focus();
                 itemDescriptionTextBox.Text = string.Empty;
             }
-            else itemDescriptionTextBox.Text = (string)PriEngine.Engine.Base.Artigos.DaValorAtributo(itemTextBox.Text, "Descricao");
+            else itemDescriptionTextBox.Text = Convert.ToString(PriEngine.Engine.Base.Artigos.DaValorAtributo(itemTextBox.Text, "Descricao"));
         }
 
         /// <summary>
@@ -121,8 +121,8 @@ namespace Primavera.Inventory.Documents
                     {
                         Artigo = itemTextBox.Text,
                         Armazem = warehouseTextBox.Text,
-                        Quantidade = (double)quantityNumericUpDown.Value,
-                        PrecUnit = (double)valueNumericUpDown.Value,
+                        Quantidade = Convert.ToDouble(quantityNumericUpDown.Value),
+                        PrecUnit = Convert.ToDouble(valueNumericUpDown.Value),
                         INV_EstadoOrigem = sourceStateTextBox.Text,
                         INV_EstadoDestino = targetStateTextBox.Text                    
                     },
@@ -158,7 +158,7 @@ namespace Primavera.Inventory.Documents
                 componentItemTextBox.Focus();
                 componentItemDescriptionTextBox.Text = string.Empty;
             }
-            else componentItemDescriptionTextBox.Text = (string)PriEngine.Engine.Base.Artigos.DaValorAtributo(componentItemTextBox.Text, "Descricao");
+            else componentItemDescriptionTextBox.Text = Convert.ToString(PriEngine.Engine.Base.Artigos.DaValorAtributo(componentItemTextBox.Text, "Descricao"));
         }
 
         /// <summary>
@@ -201,8 +201,8 @@ namespace Primavera.Inventory.Documents
                     {
                         Artigo = componentItemTextBox.Text,
                         Armazem = warehouseComponentTextBox.Text,
-                        Quantidade = (double)quantityComponentNumericUpDown.Value,
-                        PrecUnit = (double)valueComponentNumericUpDown.Value,
+                        Quantidade = Convert.ToDouble(quantityComponentNumericUpDown.Value),
+                        PrecUnit = Convert.ToDouble(valueComponentNumericUpDown.Value),
                         INV_EstadoOrigem = componentSourceStateTextBox.Text,
                         Lote = lotTextBox.Text
                     });
@@ -284,14 +284,22 @@ namespace Primavera.Inventory.Documents
                         objComposition.LinhasCompostos.Insere(lines.LinhaComposto);
                     }
                 }
-                else ShowMessage("There are no items.");
+                else
+                {
+                    ShowMessage("There are no items.");
+                } 
 
                 // Creates the Compositions/Breakdowns document.
                 PriEngine.Engine.Inventario.Composicoes.Actualiza(objComposition, ref errors);
 
                 if (errors.Length > 0)
+                {
                     ShowMessage($"Error writing document.{Environment.NewLine}" + errors);
-                else ShowMessage("Document created successfully!", iconId: StdPlatBS100.StdBSTipos.IconId.PRI_Informativo);
+                }
+                else
+                {
+                    ShowMessage("Document created successfully!", iconId: IconId.PRI_Informativo);
+                }
             }
             catch (Exception ex)
             {

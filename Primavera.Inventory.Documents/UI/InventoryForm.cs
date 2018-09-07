@@ -35,12 +35,12 @@ namespace Primavera.Inventory.Documents
             strSQL = strSQL + "FROM    INV_CabecInventarios I" + Environment.NewLine;
             strSQL = strSQL + "WHERE   YEAR(I.[DataDoc]) = YEAR(GETDATE())" + Environment.NewLine;
             long docNumber = PriEngine.Platform.Utils.FInt(PriEngine.Engine.Consulta(strSQL).Valor("NumDoc"));
-            if (((int)docNumber) < 1000000)
+            if ((Convert.ToInt32(docNumber) < 1000000))
             {
                 //UPGRADE_WARNING: (6021) Casting 'int' to Enum may cause different behaviour. More Information: http://www.vbtonet.com/ewis/ewi6021.aspx
                 docNumber = (long)(DateTime.Today.Year * 1000000 + 1);
             }
-            return (int)docNumber;
+            return Convert.ToInt32(docNumber);
         }
 
 
@@ -57,7 +57,7 @@ namespace Primavera.Inventory.Documents
                 warehouseTextBox.Clear();
                 warehouseTextBox.Focus();
             }
-            else warehouseDescriptionTextBox.Text = (string)PriEngine.Engine.Inventario.Armazens.DaValorAtributo(warehouseTextBox.Text, "Descricao");
+            else warehouseDescriptionTextBox.Text = Convert.ToString(PriEngine.Engine.Inventario.Armazens.DaValorAtributo(warehouseTextBox.Text, "Descricao"));
         }
 
         /// <summary>
@@ -74,7 +74,7 @@ namespace Primavera.Inventory.Documents
                 itemTextBox.Focus();
                 itemDescriptionTextBox.Text = string.Empty;
             }
-            else itemDescriptionTextBox.Text = (string)PriEngine.Engine.Base.Artigos.DaValorAtributo(itemTextBox.Text, "Descricao");
+            else itemDescriptionTextBox.Text = Convert.ToString(PriEngine.Engine.Base.Artigos.DaValorAtributo(itemTextBox.Text, "Descricao"));
         }
 
         /// <summary>
@@ -115,8 +115,8 @@ namespace Primavera.Inventory.Documents
                         ID = Guid.NewGuid().ToString(),
                         Artigo = itemTextBox.Text,
                         Localizacao = locationTextBox.Text,
-                        QtdOriginal = (double)quantityNumericUpDown.Value,
-                        PrecoCusto = (double)priceNumericUpDown.Value,
+                        QtdOriginal = Convert.ToDouble(quantityNumericUpDown.Value),
+                        PrecoCusto = Convert.ToDouble(priceNumericUpDown.Value),
                         Unidade = unityTextBox.Text
                     },
                 });
@@ -165,17 +165,25 @@ namespace Primavera.Inventory.Documents
                     foreach (var line in lines)
                     {
                         //Insert lines.
-                        objInventory.LinhasInventarios.Insere(line.InventoryLines);            
+                        objInventory.LinhasInventarios.Insere(line.InventoryLines);
                     }
                 }
-                else ShowMessage("There are no items.");
+                else
+                {
+                    ShowMessage("There are no items.");
+                } 
 
                 //Creates the inventory document
                 PriEngine.Engine.Inventario.Inventarios.Actualiza(objInventory, errors);
 
                 if (errors.Length > 0)
+                {
                     ShowMessage($"Error writing document.{Environment.NewLine}" + errors);
-                else ShowMessage("Document created successfully!", iconId: StdPlatBS100.StdBSTipos.IconId.PRI_Informativo);
+                }
+                else
+                {
+                    ShowMessage("Document created successfully!", iconId: IconId.PRI_Informativo);
+                }             
             }
             catch (Exception ex)
             {
@@ -217,7 +225,7 @@ namespace Primavera.Inventory.Documents
                 stockReceiptTextBox.Focus();
                 stockReceiptDescriptionTextBox.Text = string.Empty;
             }
-            else stockReceiptDescriptionTextBox.Text = (string)PriEngine.Engine.Internos.TabInternos.DaValorAtributo(stockReceiptTextBox.Text, "Descricao");
+            else stockReceiptDescriptionTextBox.Text = Convert.ToString(PriEngine.Engine.Internos.TabInternos.DaValorAtributo(stockReceiptTextBox.Text, "Descricao"));
         }
 
         /// <summary>
@@ -264,7 +272,7 @@ namespace Primavera.Inventory.Documents
                 stockIssueTextBox.Focus();
                 stockIssueDescriptionTextBox.Text = string.Empty;
             }
-            else stockIssueDescriptionTextBox.Text = (string)PriEngine.Engine.Internos.TabInternos.DaValorAtributo(stockIssueTextBox.Text, "Descricao");           
+            else stockIssueDescriptionTextBox.Text = Convert.ToString(PriEngine.Engine.Internos.TabInternos.DaValorAtributo(stockIssueTextBox.Text, "Descricao"));           
         }
     }
 }

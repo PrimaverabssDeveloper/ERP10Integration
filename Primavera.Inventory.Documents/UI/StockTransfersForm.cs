@@ -48,8 +48,8 @@ namespace Primavera.Inventory.Documents
                         Armazem = warehouseTextBox.Text,
                         Localizacao = warehouseTextBox.Text,
                         Lote = sourceLotTextBox.Text,
-                        Quantidade = (double)quantityTextBox.Value,
-                        PrecUnit = (double)valueTextBox.Value,
+                        Quantidade = Convert.ToDouble(quantityTextBox.Value),
+                        PrecUnit = Convert.ToDouble(valueTextBox.Value),
                         INV_EstadoOrigem = sourceStateTextBox.Text
                     },
                     Index = documentLinesListView.Items.Count - 1
@@ -111,14 +111,22 @@ namespace Primavera.Inventory.Documents
                         objStockTransfer.LinhasOrigem.Insere(lines.LinhaOrigem);
                     }
                 }
-                else ShowMessage("There are no items.");
+                else
+                {
+                    ShowMessage("There are no items.");
+                } 
 
                 // Creates the transfer document.
                 PriEngine.Engine.Inventario.Transferencias.Actualiza(objStockTransfer, ref errors);
 
                 if (errors.Length > 0)
+                {
                     ShowMessage($"Error writing document.{Environment.NewLine}" + errors);
-                else ShowMessage("Document created successfully!", iconId: StdPlatBS100.StdBSTipos.IconId.PRI_Informativo);
+                }
+                else
+                {
+                    ShowMessage("Document created successfully!", iconId: IconId.PRI_Informativo);
+                }
             }
             catch (Exception ex)
             {
@@ -140,7 +148,10 @@ namespace Primavera.Inventory.Documents
                 docTypeTextBox.Focus();
                 docTypeDescriptionTextBox.Text = string.Empty;
             }
-            else docTypeDescriptionTextBox.Text = (string)PriEngine.Engine.Inventario.TabTransferencias.DaValorAtributo(docTypeTextBox.Text, "Descricao");
+            else
+            {
+                docTypeDescriptionTextBox.Text = Convert.ToString(PriEngine.Engine.Inventario.TabTransferencias.DaValorAtributo(docTypeTextBox.Text, "Descricao"));
+            } 
         }
 
         /// <summary>
@@ -157,7 +168,10 @@ namespace Primavera.Inventory.Documents
                 itemTextBox.Focus();
                 itemDescriptionTextBox.Text = string.Empty;
             }
-            else itemDescriptionTextBox.Text = (string)PriEngine.Engine.Base.Artigos.DaValorAtributo(itemTextBox.Text, "Descricao");
+            else
+            {
+                itemDescriptionTextBox.Text = Convert.ToString(PriEngine.Engine.Base.Artigos.DaValorAtributo(itemTextBox.Text, "Descricao"));
+            }              
         }
 
         /// <summary>
@@ -209,8 +223,8 @@ namespace Primavera.Inventory.Documents
                         Localizacao = targetWarehouseTextBox.Text,
                         Lote = targetLotTextBox.Text,
                         Artigo = sourceLine.LinhaOrigem.Artigo,
-                        Quantidade = (double)quantityTextBox.Value,
-                        PrecUnit = (double)valueTextBox.Value,
+                        Quantidade = Convert.ToDouble(quantityTextBox.Value),
+                        PrecUnit = Convert.ToDouble(valueTextBox.Value),
                         INV_EstadoDestino = targetStateTextBox.Text
                     });
                 }
