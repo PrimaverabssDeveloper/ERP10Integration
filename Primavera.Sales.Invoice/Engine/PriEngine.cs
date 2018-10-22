@@ -56,7 +56,7 @@ namespace Primavera.Sales.Invoice
 
                 // Suppress all message box events from the API.
                 // Plataforma.ExtensibilityLogger.AllowInteractivity = false;
-                service.InitServiceEngine(Plataforma, MotorLE);
+                service.InitServiceEngine(MotorLE);
 
                 // Check if service is operational
                 if (service.IsOperational)
