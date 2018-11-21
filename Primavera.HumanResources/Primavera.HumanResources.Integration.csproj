@@ -142,15 +142,6 @@
     <Content Include="Resources\Primavera_.png" />
   </ItemGroup>
   <ItemGroup>
-    <COMReference Include="SKYPE4COMLib">
-      <Guid>{03282B5D-B38F-469D-849A-09B0A7F4881B}</Guid>
-      <VersionMajor>1</VersionMajor>
-      <VersionMinor>0</VersionMinor>
-      <Lcid>0</Lcid>
-      <WrapperTool>tlbimp</WrapperTool>
-      <Isolated>False</Isolated>
-      <EmbedInteropTypes>True</EmbedInteropTypes>
-    </COMReference>
     <COMReference Include="VBA">
       <Guid>{000204EF-0000-0000-C000-000000000046}</Guid>
       <VersionMajor>6</VersionMajor>

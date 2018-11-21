@@ -58,17 +58,23 @@ namespace Primavera.Base.Party
         /// <param name="payroll"></param>
         private void ProcessPayslips(RhpBEProcessamento payroll)
         {
-            RhpBERecibo payslip = null;
-            bool openedMap = false;
-            string employeeCurrency = "";
-            Platform.Collections.PrimaveraOrderedDictionary records = new Platform.Collections.PrimaveraOrderedDictionary();
-            string printSession = "";
-
             try
             {
-                string tempTable = PriEngine.Engine.RecursosHumanos.ProcessamentoRecibos.CriaTabAuxiliares("");
-                PriEngine.Engine.RecursosHumanos.ProcessamentoRecibos.ProcessarRecibo(txtEmployeeID.Text, payroll.Ano, payroll.MesProcessamento, payroll.NumProcessamento, payroll.TipoCalculoVencimento, payroll.Periodo, true, false, payroll.TotalDeRemuneracoes, payroll.TotalDeDescontos, payroll.TotalLiquido, DateTime.Today, true, false, true, true, true, true, false, ref employeeCurrency, records, "", "", false, false, ref tempTable, false, "RHPR0006", "", ref payslip);
-                PriEngine.Engine.RecursosHumanos.ProcessamentoRecibos.CriaReciboPDF(PriEngine.Platform, payslip, "RHPR0006", tempTable, true, ref openedMap, "0", ref printSession);
+                RhpBERecibo payslip = new RhpBERecibo
+                {
+                    CodigoFuncionario = txtEmployeeID.Text,
+                    Ano = payroll.Ano,
+                    NumPeriodo = payroll.NumPeriodoProcessado,
+                    CodigoPeriodo = payroll.Periodo,
+                    ImprInclFaltas = true,
+                    ImprAglomearar = true,
+                    Relatorio = "RHPR0006",
+                    Moeda = "EUR"
+                };
+
+                PriEngine.Engine.RecursosHumanos.Recibos.IniciaProcessamentoRecibos();
+                PriEngine.Engine.RecursosHumanos.Recibos.ProcessaRecibos(payslip,false);
+                PriEngine.Engine.RecursosHumanos.Recibos.TerminaProcessamentoRecibos();
             }
             catch 
             {
