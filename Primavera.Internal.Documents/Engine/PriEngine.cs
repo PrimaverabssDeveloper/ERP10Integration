@@ -54,13 +54,13 @@ namespace Primavera.Internal.Documents
 
                 // Suppress all message box events from the API.
                 // Plataforma.ExtensibilityLogger.AllowInteractivity = false;
-                service.InitServiceEngine(MotorLE);
+                service.Initialize(MotorLE);
 
                 // Check if service is operational
                 if (service.IsOperational)
                 {
                     // Inshore that all extensions are loaded.
-                    service.ReloadMEF();
+                    service.LoadExtensions();
                 }
 
                 MotorLE.AbreEmpresaTrabalho(objTipoPlataforma, Company, User, Password, objStdTransac, "Default");
