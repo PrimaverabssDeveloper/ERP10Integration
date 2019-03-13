@@ -162,8 +162,8 @@ namespace Primavera.Sales.Invoice
 
                 if (campos != null)
                 {
-                    txtNome.Text = campos[0].Valor;
-                    txtNif.Text = campos[1].Valor;
+                    txtNome.Text = campos[0].Valor.ToString();
+                    txtNif.Text = campos[1].Valor.ToString();
                 }
             }
         }
