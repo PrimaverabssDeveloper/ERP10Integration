@@ -1,10 +1,14 @@
-﻿using StdBE100;
+﻿using ErpBS100;
+using StdBE100;
 using StdPlatBE100;
+using StdPlatBS100;
 using System;
 using System.Data;
 using System.Data.SqlClient;
 using System.Text;
 using System.Windows.Forms;
+using VndBE100;
+using System.Reflection;
 
 namespace Primavera.Party.RelatedInfo
 {
@@ -27,15 +31,15 @@ namespace Primavera.Party.RelatedInfo
         #region private variables
 
         private StdBECategoryInfo categoryInfo;
-        private dynamic formContext;
         private dynamic plataform;
         private dynamic engine;
+        private object formContext;
 
         #endregion
 
         #region Private properties
 
-            private string EntityKey { get; set; }
+        private string EntityKey { get; set; }
 
         #endregion
 
@@ -49,16 +53,21 @@ namespace Primavera.Party.RelatedInfo
             StringBuilder sql = new StringBuilder();
             string query = string.Empty;
 
+            // Get the DocumentoVenda object by reflection.
+            VndBEDocumentoVenda documentoVenda = (VndBEDocumentoVenda) formContext.GetType().GetProperty("DocumentoVenda").GetValue(formContext, null);
+
             // Get the connection string from the context.
             string connectionString = plataform.BaseDados.DaConnectionStringNET
-                                        (plataform.BaseDados.DaNomeBDdaEmpresa(engine.Contexto.CodEmp), "Default");
+                                        (plataform.BaseDados.DaNomeBDdaEmpresa(engine.Contexto.CodEmp) , "Default");
 
             sql.Append("SELECT TipoDoc,TipoConta, SUM(ValorPendente) AS Total , SUM(Valortotal) AS Pendente FROM");
-            sql.Append(" Pendentes WHERE entidade='@1@'");
+            sql.Append(" Pendentes WHERE entidade='@1@' and TipoDoc = '@2@'");
             sql.Append(" GROUP BY TipoConta,TipoDoc");
 
-            query = sql.ToString();
-            query = query.Replace("@1@", this.EntityKey);
+            query = sql
+                .Replace("@1@", this.EntityKey.ToString())
+                .Replace("@2@", documentoVenda.Tipodoc.ToString())
+                .ToString();
 
             try
             {
@@ -123,7 +132,7 @@ namespace Primavera.Party.RelatedInfo
         /// <summary>
         /// This is the context form.
         /// </summary>
-        dynamic IStdBEInfRelacionada.FormContexto
+        object IStdBEInfRelacionada.FormContexto
         {
             set
             {

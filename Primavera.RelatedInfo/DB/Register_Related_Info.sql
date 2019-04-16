@@ -15,7 +15,7 @@ Values(
         <Name>Pendente por entidade</Name>
         <Title>Saldo em divida por conta</Title>
         <Description>Saldo em divida por conta</Description>
-        <ShowDescription>0</ShowDescription>
+        <ShowDescription>1</ShowDescription>
         <Height>200</Height>
     </General>
 	</Config>'
