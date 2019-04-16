@@ -1,14 +1,11 @@
-﻿using ErpBS100;
-using StdBE100;
+﻿using StdBE100;
 using StdPlatBE100;
-using StdPlatBS100;
 using System;
 using System.Data;
 using System.Data.SqlClient;
 using System.Text;
 using System.Windows.Forms;
 using VndBE100;
-using System.Reflection;
 
 namespace Primavera.Party.RelatedInfo
 {
