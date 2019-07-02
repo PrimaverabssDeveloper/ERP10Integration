@@ -260,3 +260,5 @@ paket-files/
 __pycache__/
 *.pyc
 /Primavera.Base.Party
+Primavera.Sales.Invoice/.config/projects.dat
+Primavera.Sales.Invoice/Logs/log_13fev20191654.txt
