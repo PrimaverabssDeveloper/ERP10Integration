@@ -5,7 +5,7 @@ using StdPlatBS100;
 using System;
 using static StdBE100.StdBETipos;
 
-namespace Primavera.Sales.Invoice
+namespace Primavera.Sales
 {
     sealed class PriEngine: DisposableBase
     {

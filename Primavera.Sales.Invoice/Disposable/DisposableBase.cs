@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Primavera.Sales.Invoice
+namespace Primavera.Sales
 {
     /// <summary>
     /// Base class for disposable classes.

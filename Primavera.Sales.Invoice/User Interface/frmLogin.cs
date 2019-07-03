@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Text;
 using System.Windows.Forms;
+using Primavera.Sales.Invoice;
 
-namespace Primavera.Sales.Invoice
+namespace Primavera.Sales
+
 {
     public partial class Login : Form
     {
