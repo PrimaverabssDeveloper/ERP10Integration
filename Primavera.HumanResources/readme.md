@@ -40,7 +40,7 @@ You can only report employee absences that exist in the absence table.
 ```C#
 RhpBECadastroFalta absenceRecords = new RhpBECadastroFalta
 {
-  Funcionario = txtEmployee.Text.ToUpper(),
+  Funcionario = "<employee_code>",
   (...)
 };
 ```
@@ -62,14 +62,14 @@ To process an employee's salary, follow these steps:
 
 To be able to process employees' earnings, they must already be registered in the database.
 ```C#
-PriEngine.Engine.RecursosHumanos.Funcionarios.Existe(txtEmployeeID.Text)
+PriEngine.Engine.RecursosHumanos.Funcionarios.Existe("<employee_code>")
 ```
 
 #### 2. Create the processing object with the necessary information
 ```C#
 RhpBEProcessamento Payroll = new RhpBEProcessamento
 {
-  Funcionario = txtEmployeeID.Text.ToUpper(),
+  Funcionario = "<employee_code>",
   (...)
 }
 ```
