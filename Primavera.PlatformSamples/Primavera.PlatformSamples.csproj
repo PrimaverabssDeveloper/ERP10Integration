@@ -33,7 +33,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>C:\prjNET\ERP10\ERP\Mainline\_Bin\</OutputPath>
+    <OutputPath>..\..\..\temp\1\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -63,10 +63,8 @@
       <HintPath>..\..\..\Program Files (x86)\PRIMAVERA\SG100\Apl\IBasBS100.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="Primavera.Platform.Helpers, Version=10.0.0.0, Culture=neutral, PublicKeyToken=11cd844aca152173, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>C:\prjNET\ERP10\ERP\Mainline\_Bin\Primavera.Platform.Helpers.dll</HintPath>
-      <Private>False</Private>
+    <Reference Include="Primavera.Platform.Helpers">
+      <HintPath>..\..\..\Program Files (x86)\PRIMAVERA\SG100\Apl\Primavera.Platform.Helpers.dll</HintPath>
     </Reference>
     <Reference Include="StdBE100">
       <HintPath>..\..\..\Program Files (x86)\PRIMAVERA\SG100\Apl\StdBE100.dll</HintPath>
