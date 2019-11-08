@@ -108,6 +108,21 @@ namespace Primavera.Base.Party
             try
             {
                 PriEngine.Engine.RecursosHumanos.Funcionarios.Actualiza(employee);
+
+                // Create payment method with dummy data
+                if (!employee.EmModoEdicao)
+                {
+                    PriEngine.Engine.RecursosHumanos.FuncFormasPagamento.Actualiza(new RhpBEFormaPagamento
+                    {
+                        ID = Guid.NewGuid().ToString(),
+                        Forma = 1,
+                        Moeda = "EUR",
+                        Entidade = employee.Funcionario,
+                        ContaEmpresa = "001",
+                        Default = true
+                    });
+                }
+
             }
             catch (Exception Ex)
             {
