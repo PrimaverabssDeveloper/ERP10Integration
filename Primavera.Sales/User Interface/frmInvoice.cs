@@ -9,10 +9,26 @@ namespace Primavera.Sales.Invoice
 {
     public partial class FrmInvoice : Form
     {
+        #region private properties
+
+        private StdPlatBS100.StdBSNavegador Navegador = null;
+        public StdPlatBS100.StdBSLista Lista { get; set; } = null;
+
+        #endregion
+
+        #region constructor
+
         public FrmInvoice()
         {
             InitializeComponent();
+
+            Navegador = PriEngine.Platform.Navegador;
+            Navegador.AbreLista += new StdPlatBS100.StdBSNavegador.AbreListaHandler(Navegador_AbreLista);
         }
+
+        #endregion
+
+        #region controls events
 
         /// <summary>
         /// 
@@ -182,5 +198,109 @@ namespace Primavera.Sales.Invoice
                 txtSerie.Focus();
             }
         }
+
+        #endregion
+
+        #region F4 Events
+
+        private void F4TipoDocumento_Click(object sender, EventArgs e)
+        {
+            PriEngine.Platform.Listas.TrataF4(
+                ConstantesPrimavera100.Categorias.TabDocVND, 
+                "Documento", 
+                this, 
+                txtTipoDoc,
+                ConstantesPrimavera100.Audit.TAB_DOC_VND);
+        }
+
+        private void F4Cliente_Click(object sender, EventArgs e)
+        {
+            PriEngine.Platform.Listas.TrataF4(
+                ConstantesPrimavera100.Categorias.Cliente,
+                "Cliente",
+                this,
+                txtEntidade,
+                ConstantesPrimavera100.Audit.TAB_CLIENTES);
+        }
+
+        private void txtArtigo_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode.Equals(Keys.F4))
+            {
+                PriEngine.Platform.Listas.TrataF4(
+                ConstantesPrimavera100.Categorias.Artigo,
+                "Artigo",
+                this,
+                txtArtigo,
+                ConstantesPrimavera100.Audit.TAB_ARTIGOS);
+            }
+        }
+
+        #endregion
+
+        #region F4 methods
+
+        public void Navegador_AbreLista(StdPlatBE100.StdBEF4 ObjF4, StdBSSql100.StdBSOSQL SqlBSO, StdBESql100.StdBESqlQuery Query, StdBE100.StdBECampos Filtro)
+        {
+            // Utilizador tem permissões sobre a categoria?
+            if ((PriEngine.Platform.Categorias.TestaPermissaoLista(Query.Categoria, Query.Query, Query.Utilizador, Query.Sistema, StdPlatBE100.StdBETipos.TipoPermissaoListas.tplstConsultar)))
+            {
+                TrataNavegadorAbreLista(ObjF4, SqlBSO, Query, Filtro); ;
+            }
+        }
+
+        /// <summary>
+        /// Do not chabge this code, just use as is.
+        /// </summary>
+        /// <param name="ObjF4"></param>
+        /// <param name="SqlBSO"></param>
+        /// <param name="Query"></param>
+        /// <param name="Filtro"></param>
+        private void TrataNavegadorAbreLista(StdPlatBE100.StdBEF4 ObjF4, StdBSSql100.StdBSOSQL SqlBSO, StdBESql100.StdBESqlQuery Query, StdBE100.StdBECampos Filtro)
+        {
+            StdPlatBS100.frmLista fFormLista = null;
+
+            var bF4 = false;
+            var bModal = false;
+
+            if (ObjF4 != null)
+            {
+                bF4 = true;
+                bModal = ObjF4.Modal;
+            }
+
+            if (bF4)
+            {
+                if (bModal || fFormLista == null)
+                {
+                    fFormLista = PriEngine.Platform.Dialogos.DaDialogoListas();
+                    PriEngine.Platform.Menus.ClasseBase = this;
+                    fFormLista.F4 = (ObjF4 != null);
+                    fFormLista.F4Ctrl = ObjF4;
+                    fFormLista.Inicializa(this, Query, Filtro);
+
+                    fFormLista.ShowDialog();
+
+                    if (!ObjF4.FormF4.TopLevel)
+                    {
+                        ObjF4.FormF4.Parent.FindForm()?.BringToFront();
+                    }
+                    else
+                    {
+                        ObjF4.FormF4.BringToFront();
+                    }
+                }
+                else
+                {
+                    fFormLista.BringToFront();
+                }
+            }
+            else
+            {
+                fFormLista.BringToFront();
+            }
+        }
+
+        #endregion
     }
 }

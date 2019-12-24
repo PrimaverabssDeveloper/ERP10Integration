@@ -80,12 +80,12 @@ namespace Primavera.Sales
         /// <summary>
         /// The platform
         /// </summary>
-        public static StdPlatBS Platform { get; private set; }
+        public static StdPlatBS Platform { get; set; }
 
         /// <summary>
         /// The engine that allows access to the modules.
         /// </summary>
-        public static ErpBS Engine { get; private set; }
+        public static ErpBS Engine { get; set; }
 
         /// <summary>
         /// The engine status 0 - Fail | 1 - OK

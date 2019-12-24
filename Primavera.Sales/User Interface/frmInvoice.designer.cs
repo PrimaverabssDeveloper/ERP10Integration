@@ -51,6 +51,8 @@
             this.txtDescricao = new System.Windows.Forms.TextBox();
             this.txtNome = new System.Windows.Forms.TextBox();
             this.txtNif = new System.Windows.Forms.TextBox();
+            this.F4TipoDocumento = new System.Windows.Forms.Button();
+            this.F4Cliente = new System.Windows.Forms.Button();
             this.Linhas.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtQtd)).BeginInit();
             this.SuspendLayout();
@@ -164,6 +166,7 @@
             this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader1,
             this.columnHeader2});
+            this.listView1.HideSelection = false;
             this.listView1.Location = new System.Drawing.Point(17, 62);
             this.listView1.Name = "listView1";
             this.listView1.Size = new System.Drawing.Size(373, 69);
@@ -215,6 +218,7 @@
             this.txtArtigo.Name = "txtArtigo";
             this.txtArtigo.Size = new System.Drawing.Size(92, 20);
             this.txtArtigo.TabIndex = 5;
+            this.txtArtigo.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtArtigo_KeyUp);
             // 
             // cmdCancel
             // 
@@ -238,6 +242,7 @@
             // 
             // txtDescricao
             // 
+            this.txtDescricao.Enabled = false;
             this.txtDescricao.Location = new System.Drawing.Point(180, 12);
             this.txtDescricao.Name = "txtDescricao";
             this.txtDescricao.Size = new System.Drawing.Size(229, 20);
@@ -245,6 +250,7 @@
             // 
             // txtNome
             // 
+            this.txtNome.Enabled = false;
             this.txtNome.Location = new System.Drawing.Point(180, 64);
             this.txtNome.Name = "txtNome";
             this.txtNome.Size = new System.Drawing.Size(139, 20);
@@ -254,14 +260,36 @@
             // 
             this.txtNif.Location = new System.Drawing.Point(325, 64);
             this.txtNif.Name = "txtNif";
-            this.txtNif.Size = new System.Drawing.Size(78, 20);
+            this.txtNif.Size = new System.Drawing.Size(84, 20);
             this.txtNif.TabIndex = 13;
+            // 
+            // F4TipoDocumento
+            // 
+            this.F4TipoDocumento.Location = new System.Drawing.Point(415, 12);
+            this.F4TipoDocumento.Name = "F4TipoDocumento";
+            this.F4TipoDocumento.Size = new System.Drawing.Size(30, 20);
+            this.F4TipoDocumento.TabIndex = 14;
+            this.F4TipoDocumento.Text = "F4";
+            this.F4TipoDocumento.UseVisualStyleBackColor = true;
+            this.F4TipoDocumento.Click += new System.EventHandler(this.F4TipoDocumento_Click);
+            // 
+            // F4Cliente
+            // 
+            this.F4Cliente.Location = new System.Drawing.Point(415, 64);
+            this.F4Cliente.Name = "F4Cliente";
+            this.F4Cliente.Size = new System.Drawing.Size(30, 20);
+            this.F4Cliente.TabIndex = 15;
+            this.F4Cliente.Text = "F4";
+            this.F4Cliente.UseVisualStyleBackColor = true;
+            this.F4Cliente.Click += new System.EventHandler(this.F4Cliente_Click);
             // 
             // FrmInvoice
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(528, 317);
+            this.Controls.Add(this.F4Cliente);
+            this.Controls.Add(this.F4TipoDocumento);
             this.Controls.Add(this.txtNif);
             this.Controls.Add(this.txtNome);
             this.Controls.Add(this.txtDescricao);
@@ -313,5 +341,7 @@
         private System.Windows.Forms.TextBox txtDescricao;
         private System.Windows.Forms.TextBox txtNome;
         private System.Windows.Forms.TextBox txtNif;
+        private System.Windows.Forms.Button F4TipoDocumento;
+        private System.Windows.Forms.Button F4Cliente;
     }
 }
