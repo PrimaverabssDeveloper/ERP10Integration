@@ -116,11 +116,12 @@ namespace Primavera.Base.Party
                     {
                         ID = Guid.NewGuid().ToString(),
                         Forma = 1,
-                        Moeda = "EUR",
+                        Moeda = PriEngine.Platform.Contexto.Empresa.MoedaEuro,
                         Entidade = employee.Funcionario,
                         ContaEmpresa = "001",
                         Default = true
                     });
+
                 }
 
             }
