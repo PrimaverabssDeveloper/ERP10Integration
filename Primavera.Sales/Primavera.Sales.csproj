@@ -85,6 +85,16 @@
       <HintPath>C:\Program Files (x86)\PRIMAVERA\SG100\Apl\BasBE100.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="ConstantesPrimavera100, Version=10.0.0.0, Culture=neutral, PublicKeyToken=11cd844aca152173, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Program Files (x86)\PRIMAVERA\SG100\Apl\ConstantesPrimavera100.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="DevExpress.Utils.v18.2, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Program Files (x86)\PRIMAVERA\SG100\Apl\DevExpress.Utils.v18.2.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="ErpBS100, Version=10.0.0.0, Culture=neutral, PublicKeyToken=11cd844aca152173, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>C:\Program Files (x86)\PRIMAVERA\SG100\Apl\ErpBS100.dll</HintPath>
@@ -113,6 +123,16 @@
     <Reference Include="StdBE100, Version=10.0.0.0, Culture=neutral, PublicKeyToken=11cd844aca152173, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>C:\Program Files (x86)\PRIMAVERA\SG100\Apl\StdBE100.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="StdBESql100, Version=10.0.0.0, Culture=neutral, PublicKeyToken=11cd844aca152173, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Program Files (x86)\PRIMAVERA\SG100\Apl\StdBESql100.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="StdBSSql100, Version=10.0.0.0, Culture=neutral, PublicKeyToken=11cd844aca152173, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Program Files (x86)\PRIMAVERA\SG100\Apl\StdBSSql100.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="StdPlatBE100, Version=10.0.0.0, Culture=neutral, PublicKeyToken=11cd844aca152173, processorArchitecture=MSIL">
@@ -207,6 +227,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Primavera_.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
