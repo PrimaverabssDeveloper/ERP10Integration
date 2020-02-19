@@ -93,9 +93,9 @@
             this.btnMonthlyChanges.BackColor = System.Drawing.Color.DodgerBlue;
             this.btnMonthlyChanges.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMonthlyChanges.ForeColor = System.Drawing.Color.White;
-            this.btnMonthlyChanges.Location = new System.Drawing.Point(25, 90);
+            this.btnMonthlyChanges.Location = new System.Drawing.Point(25, 68);
             this.btnMonthlyChanges.Name = "btnMonthlyChanges";
-            this.btnMonthlyChanges.Size = new System.Drawing.Size(298, 64);
+            this.btnMonthlyChanges.Size = new System.Drawing.Size(298, 42);
             this.btnMonthlyChanges.TabIndex = 3;
             this.btnMonthlyChanges.Text = "Monthly Changes";
             this.btnMonthlyChanges.UseVisualStyleBackColor = false;
@@ -106,9 +106,9 @@
             this.btnPayroll.BackColor = System.Drawing.Color.DodgerBlue;
             this.btnPayroll.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPayroll.ForeColor = System.Drawing.Color.White;
-            this.btnPayroll.Location = new System.Drawing.Point(25, 160);
+            this.btnPayroll.Location = new System.Drawing.Point(25, 116);
             this.btnPayroll.Name = "btnPayroll";
-            this.btnPayroll.Size = new System.Drawing.Size(298, 64);
+            this.btnPayroll.Size = new System.Drawing.Size(298, 42);
             this.btnPayroll.TabIndex = 1;
             this.btnPayroll.Text = "Payroll";
             this.btnPayroll.UseVisualStyleBackColor = false;
@@ -121,7 +121,7 @@
             this.Employee.ForeColor = System.Drawing.Color.White;
             this.Employee.Location = new System.Drawing.Point(25, 20);
             this.Employee.Name = "Employee";
-            this.Employee.Size = new System.Drawing.Size(298, 64);
+            this.Employee.Size = new System.Drawing.Size(298, 42);
             this.Employee.TabIndex = 0;
             this.Employee.Text = "Employee";
             this.Employee.UseVisualStyleBackColor = false;
