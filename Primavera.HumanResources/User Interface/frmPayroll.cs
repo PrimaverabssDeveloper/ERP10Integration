@@ -40,6 +40,11 @@ namespace Primavera.Base.Party
                     {
                         ProcessPayslips(Payroll);
                     }
+
+                    if(chkSocialSecurity.Checked)
+                    {
+                        ProcessSocialSecurity(Payroll.Ano, Payroll.MesProcessamento, Payroll.Funcionario);
+                    }
                 }
 
                 MessageBox.Show("Processing carried out successfully.");
@@ -113,5 +118,30 @@ namespace Primavera.Base.Party
             this.Close();
         }
 
+        /// <summary>
+        /// Processes the employee social security.
+        /// </summary>
+        public void ProcessSocialSecurity(int Ano, int Mes, string Funcionario)
+        {
+            RhpBEDadosSegSocial objDadosSS = new RhpBEDadosSegSocial
+            {
+                NomeEmpresa = PriEngine.Engine.Contexto.CodEmp,
+                ArredondamentoMBase = PriEngine.Engine.Contexto.MBaseDecArredonda,
+                MoedaBase = PriEngine.Engine.Contexto.MoedaBase,
+                MoedaEur = PriEngine.Engine.Contexto.MoedaEuro,
+                MoedaTrab = PriEngine.Engine.Contexto.MoedaBase,
+                NumSegSocialEmp = PriEngine.Engine.Contexto.OINumSegSocial,
+                ArredondaMultiplosMeioDia = true,
+                AnoEmpresa = Ano,
+                MesAProcessar = Mes,
+                FormatoMagnetico = "RC4008",
+                FiltroFuncionario = Funcionario
+            };
+
+            if (!PriEngine.Engine.RecursosHumanos.ProcessamentoSegSocial.ProcessarAuto(objDadosSS, out string Mensagem))
+            {
+                MessageBox.Show($"An error has ocorred in processing Social Security. \n {Mensagem}");
+            }
+        }
     }
 }

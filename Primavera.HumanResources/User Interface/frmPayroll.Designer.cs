@@ -41,6 +41,7 @@
             this.cmbProcType = new System.Windows.Forms.ComboBox();
             this.grpProcessingData = new System.Windows.Forms.GroupBox();
             this.chkPayslips = new System.Windows.Forms.CheckBox();
+            this.chkSocialSecurity = new System.Windows.Forms.CheckBox();
             this.grpProcessingData.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -148,6 +149,7 @@
             // 
             // grpProcessingData
             // 
+            this.grpProcessingData.Controls.Add(this.chkSocialSecurity);
             this.grpProcessingData.Controls.Add(this.chkPayslips);
             this.grpProcessingData.Controls.Add(this.lblEmployee);
             this.grpProcessingData.Controls.Add(this.cmbProcType);
@@ -174,6 +176,16 @@
             this.chkPayslips.TabIndex = 5;
             this.chkPayslips.Text = "Process Payslips";
             this.chkPayslips.UseVisualStyleBackColor = true;
+            // 
+            // chkSocialSecurity
+            // 
+            this.chkSocialSecurity.AutoSize = true;
+            this.chkSocialSecurity.Location = new System.Drawing.Point(140, 129);
+            this.chkSocialSecurity.Name = "chkSocialSecurity";
+            this.chkSocialSecurity.Size = new System.Drawing.Size(137, 17);
+            this.chkSocialSecurity.TabIndex = 10;
+            this.chkSocialSecurity.Text = "Process Social Security";
+            this.chkSocialSecurity.UseVisualStyleBackColor = true;
             // 
             // frmPayroll
             // 
@@ -210,5 +222,6 @@
         private System.Windows.Forms.ComboBox cmbProcType;
         private System.Windows.Forms.GroupBox grpProcessingData;
         private System.Windows.Forms.CheckBox chkPayslips;
+        private System.Windows.Forms.CheckBox chkSocialSecurity;
     }
 }
