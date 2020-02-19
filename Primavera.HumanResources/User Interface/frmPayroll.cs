@@ -63,28 +63,19 @@ namespace Primavera.Base.Party
         /// <param name="payroll"></param>
         private void ProcessPayslips(RhpBEProcessamento payroll)
         {
-            try
+            PriEngine.Engine.RecursosHumanos.Recibos.IniciaProcessamentoRecibos();
+            PriEngine.Engine.RecursosHumanos.Recibos.ProcessaRecibos(new RhpBERecibo
             {
-                RhpBERecibo payslip = new RhpBERecibo
-                {
-                    CodigoFuncionario = txtEmployeeID.Text,
-                    Ano = payroll.Ano,
-                    NumPeriodo = payroll.NumPeriodoProcessado,
-                    CodigoPeriodo = payroll.Periodo,
-                    ImprInclFaltas = true,
-                    ImprAglomearar = true,
-                    Relatorio = "RHPR0006",
-                    Moeda = "EUR"
-                };
-
-                PriEngine.Engine.RecursosHumanos.Recibos.IniciaProcessamentoRecibos();
-                PriEngine.Engine.RecursosHumanos.Recibos.ProcessaRecibos(payslip,false);
-                PriEngine.Engine.RecursosHumanos.Recibos.TerminaProcessamentoRecibos();
-            }
-            catch 
-            {
-                throw;
-            }
+                CodigoFuncionario = txtEmployeeID.Text,
+                Ano = payroll.Ano,
+                NumPeriodo = payroll.NumPeriodoProcessado,
+                CodigoPeriodo = payroll.Periodo,
+                ImprInclFaltas = true,
+                ImprAglomearar = true,
+                Relatorio = "RHPR0006",
+                Moeda = "EUR"
+            }, false);
+            PriEngine.Engine.RecursosHumanos.Recibos.TerminaProcessamentoRecibos();
         }
 
         /// <summary>
