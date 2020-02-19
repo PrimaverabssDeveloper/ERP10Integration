@@ -74,6 +74,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CodeExamples.cs" />
     <Compile Include="Disposable\DisposableBase.cs" />
     <Compile Include="Engine\PriEngine.cs" />
     <Compile Include="Program.cs" />
