@@ -1,6 +1,7 @@
 ﻿using StdBE100;
 using System;
 using System.ComponentModel;
+using System.Text;
 using System.Windows.Forms;
 using VndBE100;
 using static BasBE100.BasBETiposGcp;
@@ -128,6 +129,16 @@ namespace Primavera.Sales.Invoice
                 else
                 {
                     MessageBox.Show("Document saved with success.");
+
+                    StringBuilder strAssunto = new StringBuilder();
+
+                    strAssunto.Append("A new invoice was created - ");
+                    strAssunto.Append(invoice.Tipodoc.ToString());
+                    strAssunto.Append("/");
+                    strAssunto.Append(invoice.NumDoc.ToString());
+
+                    PriEngine.Platform.Mail.Inicializa();
+                    PriEngine.Platform.Mail.EnviaMailEx("exemplo@gmail.com", null, null, strAssunto.ToString(), null, null, false);
                 }
 
             }
