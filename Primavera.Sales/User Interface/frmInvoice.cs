@@ -103,6 +103,7 @@ namespace Primavera.Sales.Invoice
 
                         linhas = invoice.Linhas;
                         linhas.GetEdita(1).Desconto1 = 10;
+                        linhas.GetEdita(1).DataEntrega = DateTime.Now.Date.AddDays(10);
                     }
 
                     if (txtobs.Text.Length > 0)
