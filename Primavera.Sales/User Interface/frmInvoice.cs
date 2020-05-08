@@ -72,7 +72,7 @@ namespace Primavera.Sales.Invoice
         private void CmdSave_Click(object sender, EventArgs e)
         {
             VndBEDocumentoVenda invoice = new VndBEDocumentoVenda();
-            string strAvisos = string.Empty;
+            string avisos = string.Empty;
 
             invoice.Tipodoc = txtTipoDoc.Text;
             invoice.Entidade = txtEntidade.Text;
@@ -121,26 +121,24 @@ namespace Primavera.Sales.Invoice
                 // Save the document as draft.
                 // PriEngine.Engine.Comercial.Vendas.ActualizaRascunho(invoice, ref strAvisos);
 
-                PriEngine.Engine.Vendas.Documentos.Actualiza(invoice, ref strAvisos);
+                PriEngine.Engine.Vendas.Documentos.Actualiza(invoice, ref avisos);
 
-                if (strAvisos.Length > 0)
-                {
-                    MessageBox.Show("Error writing document. \n" + strAvisos);
-                }
-                else
-                {
-                    MessageBox.Show("Document saved with success.");
+                // Accountig
+                PriEngine.Engine.Base.LigacaoCBL.IntegraDocumentoLogCBL("V", invoice.Tipodoc, invoice.Serie, invoice.NumDoc, invoice.Filial, 1, ref avisos, true);
 
-                    StringBuilder strAssunto = new StringBuilder();
+                // Show warning any message.
+                if (avisos.Length > 0) MessageBox.Show(avisos.ToString());
 
-                    strAssunto.Append("A new invoice was created - ");
-                    strAssunto.Append(invoice.Tipodoc.ToString());
-                    strAssunto.Append("/");
-                    strAssunto.Append(invoice.NumDoc.ToString());
+                // Send the invoice by email
+                StringBuilder assunto = new StringBuilder();
 
-                    PriEngine.Platform.Mail.Inicializa();
-                    PriEngine.Platform.Mail.EnviaMailEx("exemplo@gmail.com", null, null, strAssunto.ToString(), null, null, false);
-                }
+                assunto.Append("A new invoice was created - ");
+                assunto.Append(invoice.Tipodoc.ToString());
+                assunto.Append("/");
+                assunto.Append(invoice.NumDoc.ToString());
+
+                PriEngine.Platform.Mail.Inicializa();
+                PriEngine.Platform.Mail.EnviaMailEx("exemplo@gmail.com", null, null, assunto.ToString(), null, null, false);
 
             }
             catch (Exception ex)
