@@ -1,6 +1,7 @@
 ﻿using StdBE100;
 using System;
 using System.ComponentModel;
+using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 using VndBE100;
@@ -206,6 +207,18 @@ namespace Primavera.Sales.Invoice
                 MessageBox.Show("The series is not defined for the selected document type.");
                 txtSerie.Clear();
                 txtSerie.Focus();
+            }
+        }
+
+        private void txtNif_Validating(object sender, CancelEventArgs e)
+        {
+            if (!PriEngine.Platform.FuncoesGlobais.ValidaNumContribuinte(txtNif.Text, StdBETipos.EnumLocalizacaoSede.lsPortugalCont))
+            {
+                txtNif.BackColor = Color.Red;
+            }
+            else
+            {
+                txtNif.BackColor = Color.White;
             }
         }
 

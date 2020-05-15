@@ -251,17 +251,18 @@
             // txtNome
             // 
             this.txtNome.Enabled = false;
-            this.txtNome.Location = new System.Drawing.Point(180, 64);
+            this.txtNome.Location = new System.Drawing.Point(180, 66);
             this.txtNome.Name = "txtNome";
             this.txtNome.Size = new System.Drawing.Size(139, 20);
             this.txtNome.TabIndex = 12;
             // 
             // txtNif
             // 
-            this.txtNif.Location = new System.Drawing.Point(325, 64);
+            this.txtNif.Location = new System.Drawing.Point(325, 66);
             this.txtNif.Name = "txtNif";
             this.txtNif.Size = new System.Drawing.Size(84, 20);
             this.txtNif.TabIndex = 13;
+            this.txtNif.Validating += new System.ComponentModel.CancelEventHandler(this.txtNif_Validating);
             // 
             // F4TipoDocumento
             // 
@@ -275,7 +276,7 @@
             // 
             // F4Cliente
             // 
-            this.F4Cliente.Location = new System.Drawing.Point(415, 64);
+            this.F4Cliente.Location = new System.Drawing.Point(415, 67);
             this.F4Cliente.Name = "F4Cliente";
             this.F4Cliente.Size = new System.Drawing.Size(30, 20);
             this.F4Cliente.TabIndex = 15;
