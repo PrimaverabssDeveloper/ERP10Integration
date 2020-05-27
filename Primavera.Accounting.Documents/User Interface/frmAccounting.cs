@@ -22,7 +22,7 @@ namespace Primavera.Accounting.Documents
         {
             if (PriEngine.Engine.Contabilidade.PlanoContas.Existe((int)txtYear.Value, textAccount.Text))
             {
-                string[] row = { textAccount.Text, comboBoxNature.Text, numericValue.Value.ToString() };
+                string[] row = { textAccount.Text, comboBoxNature.Text, numericValue.Value.ToString(), comboBoxEntityType.Text, textEntity.Text };
                 var listViewItem = new ListViewItem(row);
                 listView1.Items.Add(listViewItem);
             }
@@ -68,7 +68,9 @@ namespace Primavera.Accounting.Documents
                 documento.Mes = 1;
                 documento.Modulo = "L";
                 documento.Moeda = "EUR";
+
                 documento.IdDocOrigem = documento.ID;
+                
                 int numLote = 0;
 
                 if (listView1.Items.Count > 0)
@@ -83,6 +85,8 @@ namespace Primavera.Accounting.Documents
                         linha.Conta = item.SubItems[0].Text;
                         linha.Natureza = item.SubItems[1].Text;
                         linha.Moeda = documento.Moeda;
+                        linha.TipoEntidade = item.SubItems[3].Text;
+                        linha.Entidade = item.SubItems[4].Text;
 
                         linha.Valor = valorLinha;
                         linha.ValorAlt = valorLinha;
@@ -101,7 +105,7 @@ namespace Primavera.Accounting.Documents
                 {
                     MessageBox.Show("There are no accounts.");
                 }
-                
+
                 PriEngine.Engine.Contabilidade.Documentos.Actualiza(documento, ref strAvisos);
 
                 if (strAvisos.Length > 0)
