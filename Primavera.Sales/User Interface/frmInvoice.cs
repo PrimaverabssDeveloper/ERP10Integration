@@ -183,7 +183,7 @@ namespace Primavera.Sales.Invoice
             }
             else
             {
-                object[] camposBD = new object[2] { "Nome", "NumContrib" };
+                string[] camposBD = new string[2] { "Nome", "NumContrib" };
 
                 StdBECampos campos = PriEngine.Engine.Base.Clientes.DaValorAtributos(txtEntidade.Text, camposBD);
 
