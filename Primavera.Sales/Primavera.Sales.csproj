@@ -122,6 +122,7 @@
     </Reference>
     <Reference Include="Primavera.Platform.Runtime">
       <HintPath>..\..\..\Program Files (x86)\PRIMAVERA\SG100\Apl\Primavera.Platform.Runtime.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="StdBE100, Version=10.0.0.0, Culture=neutral, PublicKeyToken=11cd844aca152173, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
