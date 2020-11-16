@@ -79,7 +79,7 @@ RhpBEProcessamento Payroll = new RhpBEProcessamento
 Payroll.Periodo = PriEngine.Engine.RecursosHumanos.Funcionarios.DaValorAtributo(Payroll.Funcionario, "Periodo").ToString();
 ```
 
-#### 4. Perform the processing
+#### 4. Perform the processing   
 ```C#
 PriEngine.Engine.RecursosHumanos.Processamento.ProcessaAuto(Payroll, ref error);
 ```
