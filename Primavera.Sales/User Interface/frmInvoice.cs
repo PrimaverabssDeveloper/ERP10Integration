@@ -133,13 +133,16 @@ namespace Primavera.Sales.Invoice
                 // Send the invoice by email
                 StringBuilder assunto = new StringBuilder();
 
+                string body = "<html><body><div class='count-center'><div class='top'><h1>EXEMPLO HTML</h1></div></body></html>";
+
                 assunto.Append("A new invoice was created - ");
                 assunto.Append(invoice.Tipodoc.ToString());
                 assunto.Append("/");
                 assunto.Append(invoice.NumDoc.ToString());
+                
 
                 PriEngine.Platform.Mail.Inicializa();
-                PriEngine.Platform.Mail.EnviaMailEx("exemplo@gmail.com", null, null, assunto.ToString(), null, null, false);
+                PriEngine.Platform.Mail.EnviaMailEx("exemplo@gmail.com", null, null, assunto.ToString(), body.ToString(), null, false);
 
             }
             catch (Exception ex)
