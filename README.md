@@ -19,9 +19,9 @@ Before you start develop you integration, frist some base principles.
 * The assemblies are installed by default in the PRIMAVERA folder `C:\Program Files (x86)\PRIMAVERA\SG100\Apl`.
 * All the modules are identified by a prefix, fore example sales are `Vnd`, base entities like customer `Bas`, inventory are `Inv`.
 * Witch module publish three assemblies:
-    * **VndBEXXX.Dl** (XXX is the version): provide acess to the module the entities.
-    * **IVndBSXXX.Dll** provide access to the module the entities.
-    * **IVndDSXXX.Dll** provides access  to the data layer.
+    * **VndBEXXX.Dl** (XXX is the version): provide acess to the module entities, like the invoice object.
+    * **IVndBSXXX.Dll** provide access to the module the serviçes, like the create/update an sales invoce.
+    * **IVndDSXXX.Dll** provides access to the module data layer.
 * Module services can only be used after open the database connection. **ERPBS100.DLL** provides a end point to do that.
 
 ```csharp
