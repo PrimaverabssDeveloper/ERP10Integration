@@ -110,6 +110,13 @@ namespace Primavera.Erp.Sample
             supplier.Show();
         }
 
+        private void itemToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmItem item = new frmItem();
+            item.MdiParent = this;
+            item.Show();
+        }
+
         #endregion
 
         #region HumanResource

@@ -251,6 +251,12 @@
     <Compile Include="User Interface\BaseEntities\frmEmployee.Designer.cs">
       <DependentUpon>frmEmployee.cs</DependentUpon>
     </Compile>
+    <Compile Include="User Interface\BaseEntities\frmItem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="User Interface\BaseEntities\frmItem.Designer.cs">
+      <DependentUpon>frmItem.cs</DependentUpon>
+    </Compile>
     <Compile Include="User Interface\BaseEntities\frmPartyBase.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -353,6 +359,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="User Interface\BaseEntities\frmEmployee.resx">
       <DependentUpon>frmEmployee.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User Interface\BaseEntities\frmItem.resx">
+      <DependentUpon>frmItem.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="User Interface\BaseEntities\frmPartyBase.resx">
       <DependentUpon>frmPartyBase.cs</DependentUpon>
