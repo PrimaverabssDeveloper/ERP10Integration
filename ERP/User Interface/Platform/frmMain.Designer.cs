@@ -36,6 +36,7 @@
             this.emplooToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.customerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.supplierToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.itemToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.vendasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.salesInvToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.salesInvoiceReversalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -54,7 +55,8 @@
             this.payrollToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
-            this.itemToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.platBaseSocialSecToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.registerContractLinkToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -112,23 +114,30 @@
             // emplooToolStripMenuItem
             // 
             this.emplooToolStripMenuItem.Name = "emplooToolStripMenuItem";
-            this.emplooToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.emplooToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
             this.emplooToolStripMenuItem.Text = "Employee";
             this.emplooToolStripMenuItem.Click += new System.EventHandler(this.EmployeeMenuItem_Click);
             // 
             // customerToolStripMenuItem
             // 
             this.customerToolStripMenuItem.Name = "customerToolStripMenuItem";
-            this.customerToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.customerToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
             this.customerToolStripMenuItem.Text = "Customer";
             this.customerToolStripMenuItem.Click += new System.EventHandler(this.customerToolStripMenuItem_Click);
             // 
             // supplierToolStripMenuItem
             // 
             this.supplierToolStripMenuItem.Name = "supplierToolStripMenuItem";
-            this.supplierToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.supplierToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
             this.supplierToolStripMenuItem.Text = "Supplier";
             this.supplierToolStripMenuItem.Click += new System.EventHandler(this.supplierToolStripMenuItem_Click);
+            // 
+            // itemToolStripMenuItem
+            // 
+            this.itemToolStripMenuItem.Name = "itemToolStripMenuItem";
+            this.itemToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
+            this.itemToolStripMenuItem.Text = "Item";
+            this.itemToolStripMenuItem.Click += new System.EventHandler(this.itemToolStripMenuItem_Click);
             // 
             // vendasToolStripMenuItem
             // 
@@ -238,7 +247,8 @@
             // 
             this.recursosHumanosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.monthlyChangesToolStripMenuItem,
-            this.payrollToolStripMenuItem});
+            this.payrollToolStripMenuItem,
+            this.platBaseSocialSecToolStripMenuItem});
             this.recursosHumanosToolStripMenuItem.Enabled = false;
             this.recursosHumanosToolStripMenuItem.Name = "recursosHumanosToolStripMenuItem";
             this.recursosHumanosToolStripMenuItem.Size = new System.Drawing.Size(115, 20);
@@ -247,14 +257,14 @@
             // monthlyChangesToolStripMenuItem
             // 
             this.monthlyChangesToolStripMenuItem.Name = "monthlyChangesToolStripMenuItem";
-            this.monthlyChangesToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
+            this.monthlyChangesToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
             this.monthlyChangesToolStripMenuItem.Text = "Monthly Changes";
             this.monthlyChangesToolStripMenuItem.Click += new System.EventHandler(this.monthlyChangesMenuItem_Click);
             // 
             // payrollToolStripMenuItem
             // 
             this.payrollToolStripMenuItem.Name = "payrollToolStripMenuItem";
-            this.payrollToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
+            this.payrollToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
             this.payrollToolStripMenuItem.Text = "Payroll";
             this.payrollToolStripMenuItem.Click += new System.EventHandler(this.payrollMenuItem_Click);
             // 
@@ -273,12 +283,20 @@
             this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
             this.toolStripStatusLabel1.Size = new System.Drawing.Size(0, 17);
             // 
-            // itemToolStripMenuItem
+            // platBaseSocialSecToolStripMenuItem
             // 
-            this.itemToolStripMenuItem.Name = "itemToolStripMenuItem";
-            this.itemToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.itemToolStripMenuItem.Text = "Item";
-            this.itemToolStripMenuItem.Click += new System.EventHandler(this.itemToolStripMenuItem_Click);
+            this.platBaseSocialSecToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.registerContractLinkToolStripMenuItem});
+            this.platBaseSocialSecToolStripMenuItem.Name = "platBaseSocialSecToolStripMenuItem";
+            this.platBaseSocialSecToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
+            this.platBaseSocialSecToolStripMenuItem.Text = "Plat Base - Social Sec.";
+            // 
+            // registerContractLinkToolStripMenuItem
+            // 
+            this.registerContractLinkToolStripMenuItem.Name = "registerContractLinkToolStripMenuItem";
+            this.registerContractLinkToolStripMenuItem.Size = new System.Drawing.Size(190, 22);
+            this.registerContractLinkToolStripMenuItem.Text = "Register Contract Link";
+            this.registerContractLinkToolStripMenuItem.Click += new System.EventHandler(this.registerContractLinkToolStripMenuItem_Click);
             // 
             // frmMain
             // 
@@ -329,5 +347,7 @@
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
         private System.Windows.Forms.ToolStripMenuItem itemToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem platBaseSocialSecToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem registerContractLinkToolStripMenuItem;
     }
 }

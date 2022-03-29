@@ -123,18 +123,30 @@ namespace Primavera.Erp.Sample
 
         private void payrollMenuItem_Click(object sender, EventArgs e)
         {
-            frmPayroll Payroll = new frmPayroll();
-            Payroll.MdiParent = this;
-            Payroll.Show();
+            frmPayroll payroll = new frmPayroll
+            {
+                MdiParent = this
+            };
+            payroll.Show();
         }
 
         private void monthlyChangesMenuItem_Click(object sender, EventArgs e)
         {
-            frmMonthlyChanges MonthlyChanges = new frmMonthlyChanges();
-            MonthlyChanges.MdiParent = this;
-            MonthlyChanges.Show();
+            frmMonthlyChanges monthlyChanges = new frmMonthlyChanges
+            {
+                MdiParent = this
+            };
+            monthlyChanges.Show();
         }
 
+        private void registerContractLinkToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmSocialSecPlatBase socialSecPlatBase = new frmSocialSecPlatBase
+            {
+                MdiParent = this
+            };
+            socialSecPlatBase.Show();
+        }
         #endregion
 
         #region Accounting
@@ -173,5 +185,6 @@ namespace Primavera.Erp.Sample
 
         }
         #endregion
+
     }
 }

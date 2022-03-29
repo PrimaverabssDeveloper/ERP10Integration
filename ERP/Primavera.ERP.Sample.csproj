@@ -103,17 +103,14 @@
     </Reference>
     <Reference Include="DevExpress.Data.v21.2, Version=21.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      
       <Private>False</Private>
     </Reference>
     <Reference Include="DevExpress.Data.Desktop.v21.2, Version=21.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      
       <Private>False</Private>
     </Reference>
     <Reference Include="DevExpress.Utils.v21.2, Version=21.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      
       <Private>False</Private>
     </Reference>
     <Reference Include="ErpBS100, Version=10.0.0.0, Culture=neutral, PublicKeyToken=11cd844aca152173, processorArchitecture=MSIL">
@@ -279,6 +276,12 @@
     <Compile Include="User Interface\BaseEntities\frmSupplier.Designer.cs">
       <DependentUpon>frmSupplier.cs</DependentUpon>
     </Compile>
+    <Compile Include="User Interface\HumanResources\frmSocialSecPlatBase.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="User Interface\HumanResources\frmSocialSecPlatBase.Designer.cs">
+      <DependentUpon>frmSocialSecPlatBase.cs</DependentUpon>
+    </Compile>
     <Compile Include="User Interface\HumanResources\frmMonthlyChanges.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -378,6 +381,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="User Interface\BaseEntities\frmSupplier.resx">
       <DependentUpon>frmSupplier.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User Interface\HumanResources\frmSocialSecPlatBase.resx">
+      <DependentUpon>frmSocialSecPlatBase.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="User Interface\HumanResources\frmMonthlyChanges.resx">
       <DependentUpon>frmMonthlyChanges.cs</DependentUpon>
