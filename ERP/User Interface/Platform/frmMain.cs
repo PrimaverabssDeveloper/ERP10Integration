@@ -123,9 +123,6 @@ namespace Primavera.Erp.Sample
 
         private void payrollMenuItem_Click(object sender, EventArgs e)
         {
-            frmPayroll Payroll = new frmPayroll();
-            Payroll.MdiParent = this;
-            Payroll.Show();
             frmPayroll payroll = new frmPayroll
             {
                 MdiParent = this
@@ -135,9 +132,6 @@ namespace Primavera.Erp.Sample
 
         private void monthlyChangesMenuItem_Click(object sender, EventArgs e)
         {
-            frmMonthlyChanges MonthlyChanges = new frmMonthlyChanges();
-            MonthlyChanges.MdiParent = this;
-            MonthlyChanges.Show();
             frmMonthlyChanges monthlyChanges = new frmMonthlyChanges
             {
                 MdiParent = this
@@ -191,5 +185,6 @@ namespace Primavera.Erp.Sample
 
         }
         #endregion
+
     }
 }

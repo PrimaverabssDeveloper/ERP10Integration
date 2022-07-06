@@ -36,6 +36,7 @@
             this.emplooToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.customerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.supplierToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.itemToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.vendasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.salesInvToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.salesInvoiceReversalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
