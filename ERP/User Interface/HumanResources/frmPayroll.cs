@@ -2,6 +2,8 @@
 using System.Windows.Forms;
 using RhpBE100;
 using Primavera.Erp.Sample;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace Primavera.HumanResources
 {
@@ -34,18 +36,29 @@ namespace Primavera.HumanResources
                     DataLimAltMensais = dtAbsOvertime.Value
                 };
 
-                Payroll.Periodo = PriEngine.Engine.RecursosHumanos.Funcionarios.DaValorAtributo(Payroll.Funcionario, "Periodo").ToString();
-
-                if (PriEngine.Engine.RecursosHumanos.Processamento.ProcessaAuto(Payroll, ref error))
+                if (chkAsync.Checked)
                 {
-                    if(chkPayslips.Checked)
+                    List<RhpBEProcessamento> processingList = new List<RhpBEProcessamento>
                     {
-                        ProcessPayslips(Payroll);
-                    }
+                        Payroll
+                    };
+                    PriEngine.Engine.RecursosHumanos.Processamento.CriaProcessamentoAssicrono(Payroll, processingList.Select(p => (p.Funcionario, (int)p.TipoProcessamento)));
+                }
+                else
+                {
+                    Payroll.Periodo = PriEngine.Engine.RecursosHumanos.Funcionarios.DaValorAtributo(Payroll.Funcionario, "Periodo").ToString();
 
-                    if(chkSocialSecurity.Checked)
+                    if (PriEngine.Engine.RecursosHumanos.Processamento.ProcessaAuto(Payroll, ref error))
                     {
-                        ProcessSocialSecurity(Payroll.Ano, Payroll.MesProcessamento, Payroll.Funcionario);
+                        if (chkPayslips.Checked)
+                        {
+                            ProcessPayslips(Payroll);
+                        }
+
+                        if (chkSocialSecurity.Checked)
+                        {
+                            ProcessSocialSecurity(Payroll.Ano, Payroll.MesProcessamento, Payroll.Funcionario);
+                        }
                     }
                 }
 
