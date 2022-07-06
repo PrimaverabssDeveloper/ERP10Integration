@@ -136,7 +136,7 @@ namespace Primavera.Inventory
             }
             catch (Exception ex)
             {
-                PriEngine.Platform.Dialogos.MostraErro("Erro ao executar a operação", StdPlatBS100.StdBSTipos.IconId.PRI_Exclama, ex.Message);
+                PriEngine.Platform.MensagensDialogos.MostraErro("Erro ao executar a operação", StdPlatBS100.StdBSTipos.IconId.PRI_Exclama, ex.Message);
             }
         }
 

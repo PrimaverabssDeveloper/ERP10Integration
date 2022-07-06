@@ -207,7 +207,7 @@ namespace Primavera.Inventory
         /// </summary>
         private void ShowMessage(string strMessage, TipoMsg msgType = TipoMsg.PRI_SimplesOk, IconId iconId = IconId.PRI_Exclama)
         {
-            PriEngine.Platform.Dialogos.MostraMensagem(msgType, strMessage, iconId);
+            PriEngine.Platform.MensagensDialogos.MostraMensagem(msgType, strMessage, iconId);
         }
 
         /// <summary>

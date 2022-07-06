@@ -102,7 +102,7 @@ namespace Primavera.Sales.Invoice
 
                         // Add new line to the invoice and set all the item related information.
                         PriEngine.Engine.Vendas.Documentos.AdicionaLinha(invoice, item.SubItems[0].Text, ref qtd);
-
+                        
                         linhas = invoice.Linhas;
                         linhas.GetEdita(1).Desconto1 = 10;
                         linhas.GetEdita(1).DataEntrega = DateTime.Now.Date.AddDays(10);
@@ -300,7 +300,7 @@ namespace Primavera.Sales.Invoice
             {
                 if (bModal || fFormLista == null)
                 {
-                    fFormLista = PriEngine.Platform.Dialogos.DaDialogoListas();
+                    fFormLista = PriEngine.Platform.MensagensDialogos.DaDialogoListas();
                     PriEngine.Platform.Menus.ClasseBase = this;
                     fFormLista.F4 = (ObjF4 != null);
                     fFormLista.F4Ctrl = ObjF4;

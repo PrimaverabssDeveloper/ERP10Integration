@@ -168,7 +168,7 @@ namespace Primavera.Internal.Documents
 
         private void ShowMessage(string strMessage, TipoMsg msgType = TipoMsg.PRI_SimplesOk, IconId iconId = IconId.PRI_Exclama)
         {
-            PriEngine.Platform.Dialogos.MostraMensagem(msgType, strMessage, iconId);
+            PriEngine.Platform.MensagensDialogos.MostraMensagem(msgType, strMessage, iconId);
         }
 
         private void frmDocument_Load(object sender, EventArgs e)
