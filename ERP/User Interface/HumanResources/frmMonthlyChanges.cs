@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
-using RhpBE100;
 using Primavera.Erp.Sample;
+using Primavera.ERP.Sample.User_Interface.HumanResources;
 
 namespace Primavera.HumanResources
 {
@@ -14,55 +14,23 @@ namespace Primavera.HumanResources
 
         private void CmdSave_Click(object sender, EventArgs e)
         {
-            try
+            bool result = HumanResourcesService.CreateAbsence(txtAbsence.Text, dtDate.Value.Date, txtRemarks.Text, txtEmployee.Text.ToUpper(),
+                   chkExcludeProc.Checked, chkExcludeStatistics.Checked, (float)nupDuration.Value, out string message);
+
+            MessageBox.Show(message);
+
+            if (result)
             {
-                RhpBEFalta absenceType = PriEngine.Engine.RecursosHumanos.Faltas.Edita(txtAbsence.Text);
-
-                if (absenceType != null)
-                {
-                    RhpBECadastroFalta absenceRecords = new RhpBECadastroFalta
-                    {
-                        CalculoFalta = absenceType.CalculoFaltaDias,
-                        Horas = absenceType.Horas,
-                        DescontaRem = absenceType.DescontaRemuneracoes != 0,
-                        Falta = txtAbsence.Text.ToUpper(),
-                        Data = dtDate.Value.Date,
-                        Observacoes = txtRemarks.Text,
-                        Funcionario = txtEmployee.Text.ToUpper(),
-                        ExcluiProc = chkExcludeProc.Checked,
-                        ExcluiEstat = chkExcludeStatistics.Checked,
-                        Tempo = (float)nupDuration.Value,
-                        Origem = (byte)OrigemDados.origemVBA
-                    };
-
-                    if (PriEngine.Engine.RecursosHumanos.CadastroFaltas.Existe(absenceRecords.Funcionario, absenceRecords.Data, absenceRecords.Falta))
-                    {
-                        MessageBox.Show($"The absence {absenceRecords.Falta} already exists for Employee { absenceRecords.Funcionario} on day {absenceRecords.Data}.");
-                    }
-                    else
-                    {
-                        PriEngine.Engine.RecursosHumanos.CadastroFaltas.Actualiza(absenceRecords);
-                        MessageBox.Show("Writing carried out successfully.");
-                        this.Close();
-                    }
-
-                }
-                else
-                    MessageBox.Show("The Absence type does not exist.");
+                this.Close();
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show( $"An error occurred while executing the operation: \n {ex.Message}");
-            }
-
         }
 
-        private void cmdCancel_Click(object sender, EventArgs e)
+        private void CmdCancel_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
-        private void txtEmployee_Validated(object sender, EventArgs e)
+        private void TxtEmployee_Validated(object sender, EventArgs e)
         {
             txtName.Text = PriEngine.Engine.RecursosHumanos.Funcionarios.DaValorAtributo(txtEmployee.Text.ToUpper(), "Nome").ToString();
         }

@@ -278,6 +278,12 @@
     <Compile Include="User Interface\BaseEntities\frmSupplier.Designer.cs">
       <DependentUpon>frmSupplier.cs</DependentUpon>
     </Compile>
+    <Compile Include="User Interface\HumanResources\frmVacaciones.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="User Interface\HumanResources\frmVacaciones.Designer.cs">
+      <DependentUpon>frmVacaciones.cs</DependentUpon>
+    </Compile>
     <Compile Include="User Interface\HumanResources\frmSocialSecPlatBase.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -296,6 +302,7 @@
     <Compile Include="User Interface\HumanResources\frmPayroll.Designer.cs">
       <DependentUpon>frmPayroll.cs</DependentUpon>
     </Compile>
+    <Compile Include="User Interface\HumanResources\HumanResourcesService.cs" />
     <Compile Include="User Interface\Internal\frmDocument.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -383,6 +390,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="User Interface\BaseEntities\frmSupplier.resx">
       <DependentUpon>frmSupplier.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User Interface\HumanResources\frmVacaciones.resx">
+      <DependentUpon>frmVacaciones.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="User Interface\HumanResources\frmSocialSecPlatBase.resx">
       <DependentUpon>frmSocialSecPlatBase.cs</DependentUpon>

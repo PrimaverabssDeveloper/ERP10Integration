@@ -53,10 +53,11 @@
             this.recursosHumanosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.monthlyChangesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.payrollToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
-            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.platBaseSocialSecToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.registerContractLinkToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.vacationsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -248,7 +249,8 @@
             this.recursosHumanosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.monthlyChangesToolStripMenuItem,
             this.payrollToolStripMenuItem,
-            this.platBaseSocialSecToolStripMenuItem});
+            this.platBaseSocialSecToolStripMenuItem,
+            this.vacationsToolStripMenuItem});
             this.recursosHumanosToolStripMenuItem.Enabled = false;
             this.recursosHumanosToolStripMenuItem.Name = "recursosHumanosToolStripMenuItem";
             this.recursosHumanosToolStripMenuItem.Size = new System.Drawing.Size(115, 20);
@@ -268,6 +270,21 @@
             this.payrollToolStripMenuItem.Text = "Payroll";
             this.payrollToolStripMenuItem.Click += new System.EventHandler(this.payrollMenuItem_Click);
             // 
+            // platBaseSocialSecToolStripMenuItem
+            // 
+            this.platBaseSocialSecToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.registerContractLinkToolStripMenuItem});
+            this.platBaseSocialSecToolStripMenuItem.Name = "platBaseSocialSecToolStripMenuItem";
+            this.platBaseSocialSecToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
+            this.platBaseSocialSecToolStripMenuItem.Text = "Plat Base - Social Sec.";
+            // 
+            // registerContractLinkToolStripMenuItem
+            // 
+            this.registerContractLinkToolStripMenuItem.Name = "registerContractLinkToolStripMenuItem";
+            this.registerContractLinkToolStripMenuItem.Size = new System.Drawing.Size(190, 22);
+            this.registerContractLinkToolStripMenuItem.Text = "Register Contract Link";
+            this.registerContractLinkToolStripMenuItem.Click += new System.EventHandler(this.registerContractLinkToolStripMenuItem_Click);
+            // 
             // statusStrip1
             // 
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -283,20 +300,12 @@
             this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
             this.toolStripStatusLabel1.Size = new System.Drawing.Size(0, 17);
             // 
-            // platBaseSocialSecToolStripMenuItem
+            // vacationsToolStripMenuItem
             // 
-            this.platBaseSocialSecToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.registerContractLinkToolStripMenuItem});
-            this.platBaseSocialSecToolStripMenuItem.Name = "platBaseSocialSecToolStripMenuItem";
-            this.platBaseSocialSecToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
-            this.platBaseSocialSecToolStripMenuItem.Text = "Plat Base - Social Sec.";
-            // 
-            // registerContractLinkToolStripMenuItem
-            // 
-            this.registerContractLinkToolStripMenuItem.Name = "registerContractLinkToolStripMenuItem";
-            this.registerContractLinkToolStripMenuItem.Size = new System.Drawing.Size(190, 22);
-            this.registerContractLinkToolStripMenuItem.Text = "Register Contract Link";
-            this.registerContractLinkToolStripMenuItem.Click += new System.EventHandler(this.registerContractLinkToolStripMenuItem_Click);
+            this.vacationsToolStripMenuItem.Name = "vacationsToolStripMenuItem";
+            this.vacationsToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
+            this.vacationsToolStripMenuItem.Text = "Vacations";
+            this.vacationsToolStripMenuItem.Click += new System.EventHandler(this.vacationsToolStripMenuItem_Click);
             // 
             // frmMain
             // 
@@ -349,5 +358,6 @@
         private System.Windows.Forms.ToolStripMenuItem itemToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem platBaseSocialSecToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem registerContractLinkToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem vacationsToolStripMenuItem;
     }
 }

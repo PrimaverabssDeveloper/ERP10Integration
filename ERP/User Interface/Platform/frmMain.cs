@@ -147,6 +147,15 @@ namespace Primavera.Erp.Sample
             };
             socialSecPlatBase.Show();
         }
+
+        private void vacationsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmVacaciones vacations = new frmVacaciones
+            {
+                MdiParent = this
+            };
+            vacations.Show();
+        }
         #endregion
 
         #region Accounting
@@ -185,6 +194,7 @@ namespace Primavera.Erp.Sample
 
         }
         #endregion
+
 
     }
 }

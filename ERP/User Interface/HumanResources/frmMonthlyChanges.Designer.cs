@@ -54,7 +54,7 @@
             this.cmdCancel.TabIndex = 14;
             this.cmdCancel.Text = "Cancel";
             this.cmdCancel.UseVisualStyleBackColor = true;
-            this.cmdCancel.Click += new System.EventHandler(this.cmdCancel_Click);
+            this.cmdCancel.Click += new System.EventHandler(this.CmdCancel_Click);
             // 
             // cmdSave
             // 
@@ -97,7 +97,7 @@
             this.txtEmployee.Name = "txtEmployee";
             this.txtEmployee.Size = new System.Drawing.Size(80, 20);
             this.txtEmployee.TabIndex = 1;
-            this.txtEmployee.Validated += new System.EventHandler(this.txtEmployee_Validated);
+            this.txtEmployee.Validated += new System.EventHandler(this.TxtEmployee_Validated);
             // 
             // txtName
             // 
