@@ -12,7 +12,7 @@ namespace Primavera.HumanResources
             InitializeComponent();
         }
 
-        private void cmdSave_Click(object sender, EventArgs e)
+        private void CmdSave_Click(object sender, EventArgs e)
         {
             try
             {

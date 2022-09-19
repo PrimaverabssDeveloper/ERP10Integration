@@ -64,7 +64,7 @@
             this.cmdSave.TabIndex = 13;
             this.cmdSave.Text = "Save";
             this.cmdSave.UseVisualStyleBackColor = true;
-            this.cmdSave.Click += new System.EventHandler(this.cmdSave_Click);
+            this.cmdSave.Click += new System.EventHandler(this.CmdSave_Click);
             // 
             // txtAbsence
             // 
