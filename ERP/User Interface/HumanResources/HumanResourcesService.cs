@@ -1,5 +1,6 @@
 ﻿using Primavera.Erp.Sample;
 using RhpBE100;
+using StdPlatBS100;
 using System;
 using System.Collections.Generic;
 
@@ -13,6 +14,9 @@ namespace Primavera.ERP.Sample.User_Interface.HumanResources
         /// <param name="employeeList">Employee List</param>
         public static void CreateIncomeStatement(List<RhpBEFuncionario> employeeList)
         {
+            StdBSMapas mapas = PriEngine.Platform.Mapas;
+            mapas.Inicializar("RHP");
+
             string printSession = "";
             employeeList.ForEach(p =>
             {
