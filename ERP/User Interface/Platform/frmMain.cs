@@ -3,6 +3,7 @@ using System.Text;
 using System.Windows.Forms;
 using Primavera.Accounting.Documents;
 using Primavera.BaseEntities;
+using Primavera.Construction.Tender;
 using Primavera.HumanResources;
 using Primavera.Internal.Documents;
 using Primavera.Inventory;
@@ -169,6 +170,17 @@ namespace Primavera.Erp.Sample
 
         #endregion
 
+        #region Construction
+
+        private void TenderToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmTender tender = new frmTender();
+            tender.MdiParent = this;
+            tender.Show();
+        }
+
+        #endregion.
+
         #region Login
         private void loginToolStripMenuItem1_Click(object sender, EventArgs e)
         {
@@ -194,7 +206,5 @@ namespace Primavera.Erp.Sample
 
         }
         #endregion
-
-
     }
 }

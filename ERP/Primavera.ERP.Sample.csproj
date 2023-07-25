@@ -101,8 +101,14 @@
       <HintPath>..\..\..\Program Files (x86)\PRIMAVERA\SG100\Apl\ConstantesPrimavera100.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="DevExpress.Utils.v21.2, Version=21.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.Utils.v21.2.UI, Version=21.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="CopPlataformaNET100">
+      <HintPath>..\..\..\Program Files\PRIMAVERA\SG100\Apl\CopPlataformaNET100.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Utils.v21.2, Version=21.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Program Files\PRIMAVERA\SG100\Apl\DevExpress.Utils.v21.2.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="DevExpress.Data.v21.2, Version=21.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <Private>False</Private>
@@ -111,7 +117,7 @@
       <SpecificVersion>False</SpecificVersion>
       <Private>False</Private>
     </Reference>
-    <Reference Include="DevExpress.Utils.v21.2, Version=21.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+    <Reference Include="DevExpress.Utils.v21.2.UI, Version=21.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <Private>False</Private>
     </Reference>
@@ -165,6 +171,34 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>C:\Program Files (x86)\PRIMAVERA\SG100\Apl\IVndBS100.dll</HintPath>
       <Private>False</Private>
+    </Reference>
+    <Reference Include="Primavera.COP.Business, Version=1.5.3000.1010, Culture=neutral, PublicKeyToken=11cd844aca152173, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Program Files\PRIMAVERA\SG100\Apl\Primavera.COP.Business.dll</HintPath>
+    </Reference>
+    <Reference Include="Primavera.COP.Data, Version=1.5.3000.1010, Culture=neutral, PublicKeyToken=11cd844aca152173, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Program Files\PRIMAVERA\SG100\Apl\Primavera.COP.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="Primavera.COP.Entities, Version=1.5.3000.1010, Culture=neutral, PublicKeyToken=11cd844aca152173, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Program Files\PRIMAVERA\SG100\Apl\Primavera.COP.Entities.dll</HintPath>
+    </Reference>
+    <Reference Include="Primavera.COP.Platform, Version=1.5.3000.1010, Culture=neutral, PublicKeyToken=11cd844aca152173, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Program Files\PRIMAVERA\SG100\Apl\Primavera.COP.Platform.dll</HintPath>
+    </Reference>
+    <Reference Include="Primavera.COP.Platform.Engine.Business, Version=1.5.3000.1010, Culture=neutral, PublicKeyToken=11cd844aca152173, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Program Files\PRIMAVERA\SG100\Apl\Primavera.COP.Platform.Engine.Business.dll</HintPath>
+    </Reference>
+    <Reference Include="Primavera.COP.Platform.Engine.Data, Version=1.5.3000.1010, Culture=neutral, PublicKeyToken=11cd844aca152173, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Program Files\PRIMAVERA\SG100\Apl\Primavera.COP.Platform.Engine.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="Primavera.COP.Platform.Engine.Entities, Version=1.5.3000.1010, Culture=neutral, PublicKeyToken=11cd844aca152173, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Program Files\PRIMAVERA\SG100\Apl\Primavera.COP.Platform.Engine.Entities.dll</HintPath>
     </Reference>
     <Reference Include="Primavera.Extensibility.Engine, Version=10.0.0.0, Culture=neutral, PublicKeyToken=11cd844aca152173, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -278,6 +312,12 @@
     <Compile Include="User Interface\BaseEntities\frmSupplier.Designer.cs">
       <DependentUpon>frmSupplier.cs</DependentUpon>
     </Compile>
+    <Compile Include="User Interface\Construction\frmTender.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="User Interface\Construction\frmTender.Designer.cs">
+      <DependentUpon>frmTender.cs</DependentUpon>
+    </Compile>
     <Compile Include="User Interface\HumanResources\frmVacaciones.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -390,6 +430,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="User Interface\BaseEntities\frmSupplier.resx">
       <DependentUpon>frmSupplier.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User Interface\Construction\frmTender.resx">
+      <DependentUpon>frmTender.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="User Interface\HumanResources\frmVacaciones.resx">
       <DependentUpon>frmVacaciones.cs</DependentUpon>

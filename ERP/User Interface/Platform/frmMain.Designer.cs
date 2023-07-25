@@ -55,9 +55,11 @@
             this.payrollToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.platBaseSocialSecToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.registerContractLinkToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.vacationsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.constructionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tenderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
-            this.vacationsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -71,7 +73,8 @@
             this.invetárioToolStripMenuItem,
             this.internosToolStripMenuItem,
             this.contabilidadeToolStripMenuItem,
-            this.recursosHumanosToolStripMenuItem});
+            this.recursosHumanosToolStripMenuItem,
+            this.constructionToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(1189, 24);
@@ -285,6 +288,29 @@
             this.registerContractLinkToolStripMenuItem.Text = "Register Contract Link";
             this.registerContractLinkToolStripMenuItem.Click += new System.EventHandler(this.registerContractLinkToolStripMenuItem_Click);
             // 
+            // vacationsToolStripMenuItem
+            // 
+            this.vacationsToolStripMenuItem.Name = "vacationsToolStripMenuItem";
+            this.vacationsToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
+            this.vacationsToolStripMenuItem.Text = "Vacations";
+            this.vacationsToolStripMenuItem.Click += new System.EventHandler(this.vacationsToolStripMenuItem_Click);
+            // 
+            // constructionToolStripMenuItem
+            // 
+            this.constructionToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tenderToolStripMenuItem});
+            this.constructionToolStripMenuItem.Enabled = false;
+            this.constructionToolStripMenuItem.Name = "constructionToolStripMenuItem";
+            this.constructionToolStripMenuItem.Size = new System.Drawing.Size(88, 20);
+            this.constructionToolStripMenuItem.Text = "Construction";
+            // 
+            // tenderToolStripMenuItem
+            // 
+            this.tenderToolStripMenuItem.Name = "tenderToolStripMenuItem";
+            this.tenderToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.tenderToolStripMenuItem.Text = "Tender";
+            this.tenderToolStripMenuItem.Click += new System.EventHandler(this.TenderToolStripMenuItem_Click);
+            // 
             // statusStrip1
             // 
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -299,13 +325,6 @@
             // 
             this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
             this.toolStripStatusLabel1.Size = new System.Drawing.Size(0, 17);
-            // 
-            // vacationsToolStripMenuItem
-            // 
-            this.vacationsToolStripMenuItem.Name = "vacationsToolStripMenuItem";
-            this.vacationsToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
-            this.vacationsToolStripMenuItem.Text = "Vacations";
-            this.vacationsToolStripMenuItem.Click += new System.EventHandler(this.vacationsToolStripMenuItem_Click);
             // 
             // frmMain
             // 
@@ -359,5 +378,7 @@
         private System.Windows.Forms.ToolStripMenuItem platBaseSocialSecToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem registerContractLinkToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem vacationsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem constructionToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem tenderToolStripMenuItem;
     }
 }
