@@ -59,8 +59,8 @@ namespace Primavera.Construction.Tender
             {
                 PlataformaNET.AtualizaERP(PriEngine.Platform, PriEngine.Engine);
 
-                contextoMotor = new EngineContext((PlatformVersions)PriEngine.Platform.Contexto.TipoPlataforma, PlataformaNET.Contexto.Instancia,
-                                                PlataformaNET.Contexto.CodEmpresa, PlataformaNET.Contexto.Utilizador, PlataformaNET.Contexto.Password);
+                contextoMotor = new EngineContext((PlatformVersions)PriEngine.Platform.Contexto.TipoPlataforma, PlataformaNET.Contexto.Instancia, PlataformaNET.Contexto.CodEmpresa, PlataformaNET.Contexto.Utilizador,
+                    PlataformaNET.Contexto.Password, PlataformaNET.BaseDados.GetSqlConnection(PlataformaNET.BaseDados.GetSQLServerDBName(), PlataformaNET.Contexto.Instancia, pooling: false));
 
                 if (contextoMotor == null)
                 {

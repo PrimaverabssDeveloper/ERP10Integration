@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Reflection;
 using System.Windows.Forms;
 
@@ -9,9 +7,9 @@ namespace Primavera.Erp.Sample
 {
     static class Program
     {
-        /// <summary>
-        /// The main entry point for the application.
-        /// </summary>
+        private static string PERCURSOSG = "";
+
+        /// <summary>The main entry point for the application.</summary>
         [STAThread]
         static void Main()
         {
@@ -21,13 +19,11 @@ namespace Primavera.Erp.Sample
             Application.Run(new frmMain());
         }
 
-        /// <summary>
-        /// Resolving Assembly
-        /// </summary>
+        /// <summary>Resolving Assembly.</summary>
         /// <param name="sender">Application</param>
         /// <param name="args">Resolving Assembly Name</param>
         /// <returns>Assembly</returns>
-        static System.Reflection.Assembly CurrentDomain_AssemblyResolve(object sender, ResolveEventArgs args)
+        static Assembly CurrentDomain_AssemblyResolve(object sender, ResolveEventArgs args)
         {
             string assemblyFullName;
             string assemblyProgramFilesX86FullName;
@@ -40,17 +36,32 @@ namespace Primavera.Erp.Sample
 
             assemblyName = new AssemblyName(args.Name);
 
-            var PERCURSOSGE100 = Environment.GetEnvironmentVariable("PERCURSOSGE100", EnvironmentVariableTarget.Machine);
-
-            if (!string.IsNullOrWhiteSpace(PERCURSOSGE100))
+            if (string.IsNullOrEmpty(PERCURSOSG))
             {
-                assemblyFullName = Path.Combine(PERCURSOSGE100, assemblyName.Name + ".dll");
-            }
-            else
-            {
-                assemblyFullName = Path.Combine(Path.Combine(@"C:\", PRIMAVERA_FOLDER), assemblyName.Name + ".dll");
+                PERCURSOSG = Environment.GetEnvironmentVariable("PERCURSOXRP100", EnvironmentVariableTarget.Machine);
+                
+                if (string.IsNullOrEmpty(PERCURSOSG))
+                {
+                    PERCURSOSG = Environment.GetEnvironmentVariable("PERCURSOSGV100", EnvironmentVariableTarget.Machine);
+                }
+
+                if (string.IsNullOrEmpty(PERCURSOSG))
+                {
+                    PERCURSOSG = Environment.GetEnvironmentVariable("PERCURSOSGE100", EnvironmentVariableTarget.Machine);
+                }
+
+                if (string.IsNullOrEmpty(PERCURSOSG))
+                {
+                    PERCURSOSG = Environment.GetEnvironmentVariable("PERCURSOSGP100", EnvironmentVariableTarget.Machine);
+                }
+
+                if (string.IsNullOrEmpty(PERCURSOSG))
+                {
+                    PERCURSOSG = Path.Combine(@"C:\", PRIMAVERA_FOLDER);
+                }
             }
 
+            assemblyFullName = Path.Combine(PERCURSOSG, assemblyName.Name + ".dll");
             assemblyProgramFilesX86FullName = Path.Combine(Path.Combine(environmentVariablesProgramFilesX86, PRIMAVERA_FOLDER), assemblyName.Name + ".dll");
             assemblyProgramFilesFullName = Path.Combine(Path.Combine(environmentVariablesProgramFiles, PRIMAVERA_FOLDER), assemblyName.Name + ".dll");
 

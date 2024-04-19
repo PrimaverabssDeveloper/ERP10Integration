@@ -27,8 +27,9 @@ namespace Primavera.Erp.Sample
             StdPlatBS Plataforma = new StdPlatBS();
             ErpBS MotorLE = new ErpBS();
 
-            EnumTipoPlataforma objTipoPlataforma;
-            objTipoPlataforma = EnumTipoPlataforma.tpEmpresarial;
+            EnumTipoPlataforma objTipoPlataforma = (!string.IsNullOrEmpty(Environment.GetEnvironmentVariable("PERCURSOXRP100", EnvironmentVariableTarget.Machine)) ? EnumTipoPlataforma.tpXRP :
+                (!string.IsNullOrEmpty(Environment.GetEnvironmentVariable("PERCURSOSGV100", EnvironmentVariableTarget.Machine)) ? EnumTipoPlataforma.tpEvolution :
+                (!string.IsNullOrEmpty(Environment.GetEnvironmentVariable("PERCURSOSGE100", EnvironmentVariableTarget.Machine)) ? EnumTipoPlataforma.tpEmpresarial : EnumTipoPlataforma.tpProfissional)));
 
             objAplConf.Instancia = "Default";
             objAplConf.AbvtApl = "ERP";
