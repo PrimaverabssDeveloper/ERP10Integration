@@ -108,5 +108,13 @@ namespace Primavera.PlatformSamples
                 form.ShowDialog();
             }
         }
+
+        private void btPromptFunction_Click(object sender, EventArgs e)
+        {
+            using (frmPromptFunction form = new frmPromptFunction())
+            {
+                form.ShowDialog();
+            }
+        }
     }
 }

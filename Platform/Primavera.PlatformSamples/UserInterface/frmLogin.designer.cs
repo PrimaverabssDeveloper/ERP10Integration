@@ -45,6 +45,7 @@
             this.txtInstance = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.picLogo = new System.Windows.Forms.PictureBox();
+            this.btPromptFunction = new System.Windows.Forms.Button();
             this.pnlActions.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picLogo)).BeginInit();
@@ -137,6 +138,7 @@
             // pnlActions
             // 
             this.pnlActions.Controls.Add(this.btLogging);
+            this.pnlActions.Controls.Add(this.btPromptFunction);
             this.pnlActions.Controls.Add(this.btAlerts);
             this.pnlActions.Controls.Add(this.btAttachs);
             this.pnlActions.Location = new System.Drawing.Point(23, 53);
@@ -242,6 +244,22 @@
             this.picLogo.TabIndex = 16;
             this.picLogo.TabStop = false;
             // 
+            // btPromptFunction
+            // 
+            this.btPromptFunction.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btPromptFunction.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btPromptFunction.ForeColor = System.Drawing.Color.White;
+            this.btPromptFunction.Image = global::Primavera.PlatformSamples.Properties.Resources.Notification;
+            this.btPromptFunction.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btPromptFunction.Location = new System.Drawing.Point(18, 223);
+            this.btPromptFunction.Name = "btPromptFunction";
+            this.btPromptFunction.Size = new System.Drawing.Size(334, 64);
+            this.btPromptFunction.TabIndex = 0;
+            this.btPromptFunction.Text = "Execute Prompt Function Sample";
+            this.btPromptFunction.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btPromptFunction.UseVisualStyleBackColor = false;
+            this.btPromptFunction.Click += new System.EventHandler(this.btPromptFunction_Click);
+            // 
             // frmLogin
             // 
             this.AcceptButton = this.cmdLogin;
@@ -289,5 +307,6 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.TextBox txtInstance;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button btPromptFunction;
     }
 }

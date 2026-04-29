@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -37,6 +37,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -46,36 +47,42 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup>
     <ApplicationIcon>ERPICONE.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="BasBE100">
-      <HintPath>..\..\..\Program Files (x86)\PRIMAVERA\SG100\Apl\BasBE100.dll</HintPath>
+      <HintPath>C:\Program Files\PRIMAVERA\SG100\Apl\BasBE100.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="ErpBS100">
-      <HintPath>..\..\..\Program Files (x86)\PRIMAVERA\SG100\Apl\ErpBS100.dll</HintPath>
+      <HintPath>C:\Program Files\PRIMAVERA\SG100\Apl\ErpBS100.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="IBasBS100">
-      <HintPath>..\..\..\Program Files (x86)\PRIMAVERA\SG100\Apl\IBasBS100.dll</HintPath>
+      <HintPath>C:\Program Files\PRIMAVERA\SG100\Apl\IBasBS100.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="IStdPlatBS100, Version=10.0.0.0, Culture=neutral, PublicKeyToken=11cd844aca152173">
       <Private>False</Private>
     </Reference>
     <Reference Include="Primavera.Platform.Helpers">
-      <HintPath>..\..\..\Program Files (x86)\PRIMAVERA\SG100\Apl\Primavera.Platform.Helpers.dll</HintPath>
+      <HintPath>C:\Program Files\PRIMAVERA\SG100\Apl\Primavera.Platform.Helpers.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="StdBE100">
-      <HintPath>..\..\..\Program Files (x86)\PRIMAVERA\SG100\Apl\StdBE100.dll</HintPath>
+      <HintPath>C:\Program Files\PRIMAVERA\SG100\Apl\StdBE100.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="StdPlatBE100, Version=10.0.0.0, Culture=neutral, PublicKeyToken=11cd844aca152173, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>C:\Program Files (x86)\PRIMAVERA\SG100\Apl\StdPlatBE100.dll</HintPath>
+      <HintPath>C:\Program Files\PRIMAVERA\SG100\Apl\StdPlatBE100.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="StdPlatBS100">
-      <HintPath>..\..\..\Program Files (x86)\PRIMAVERA\SG100\Apl\StdPlatBS100.dll</HintPath>
+      <HintPath>C:\Program Files\PRIMAVERA\SG100\Apl\StdPlatBS100.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="System" />
@@ -92,7 +99,7 @@
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="VndBE100">
-      <HintPath>..\..\..\Program Files (x86)\PRIMAVERA\SG100\Apl\VndBE100.dll</HintPath>
+      <HintPath>C:\Program Files\PRIMAVERA\SG100\Apl\VndBE100.dll</HintPath>
       <Private>False</Private>
     </Reference>
   </ItemGroup>
@@ -100,6 +107,12 @@
     <Compile Include="Disposable\DisposableBase.cs" />
     <Compile Include="Engine\PriEngine.cs" />
     <Compile Include="Helpers\ExceptionHelper.cs" />
+    <Compile Include="UserInterface\frmPromptFunction.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserInterface\frmPromptFunction.Designer.cs">
+      <DependentUpon>frmPromptFunction.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserInterface\frmAlertManager.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -126,6 +139,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="UserInterface\frmPromptFunction.resx">
+      <DependentUpon>frmPromptFunction.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UserInterface\frmAlertManager.resx">
       <DependentUpon>frmAlertManager.cs</DependentUpon>
     </EmbeddedResource>

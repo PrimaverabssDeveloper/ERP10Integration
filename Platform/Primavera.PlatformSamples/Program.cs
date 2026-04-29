@@ -28,7 +28,7 @@ namespace Primavera.PlatformSamples
         static System.Reflection.Assembly CurrentDomain_AssemblyResolve(object sender, ResolveEventArgs args)
         {
             var assemblyName = new System.Reflection.AssemblyName(args.Name);
-            var assemblyFullName = System.IO.Path.Combine(System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ProgramFilesX86), PRIMAVERA_FOLDER), assemblyName.Name + ".dll");
+            var assemblyFullName = System.IO.Path.Combine(GetDllsFolder(), assemblyName.Name + ".dll");
 
             if (System.IO.File.Exists(assemblyFullName))
             {
@@ -36,6 +36,33 @@ namespace Primavera.PlatformSamples
             }
 
             return null;
+        }
+
+        private static string GetDllsFolder()
+        {
+            string m_strDllsLocation = Environment.GetEnvironmentVariable("PERCURSOSGE100", EnvironmentVariableTarget.Machine);
+
+            if (string.IsNullOrEmpty(m_strDllsLocation))
+            {
+                m_strDllsLocation = Environment.GetEnvironmentVariable("PERCURSOSGP100", EnvironmentVariableTarget.Machine);
+            }
+
+            if (string.IsNullOrEmpty(m_strDllsLocation))
+            {
+                m_strDllsLocation = Environment.GetEnvironmentVariable("PERCURSOSGV100", EnvironmentVariableTarget.Machine);
+            }
+
+            if (string.IsNullOrEmpty(m_strDllsLocation))
+            {
+                m_strDllsLocation = Environment.GetEnvironmentVariable("PERCURSOXRP100", EnvironmentVariableTarget.Machine);
+            }
+
+            if (string.IsNullOrEmpty(m_strDllsLocation))
+            {
+                m_strDllsLocation = System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ProgramFilesX86), PRIMAVERA_FOLDER);
+            }
+
+            return m_strDllsLocation;
         }
     }
 }
