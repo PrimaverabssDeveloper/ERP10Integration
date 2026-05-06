@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data;
 using System.Text;
 using System.Windows.Forms;
 
@@ -10,20 +11,91 @@ namespace Primavera.PlatformSamples.UserInterface
         {
             InitializeComponent();
 
-            txtContext.Text = "Items list:";
+            DateTime _dataInicio = new DateTime(DateTime.Now.Year, 1, 1); ;
+            DateTime _dataFim = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1).AddMonths(1).AddDays(-1);
 
-            StringBuilder sb = new StringBuilder();
-            sb.AppendLine("Item;Description;Price");
-            sb.AppendLine("A0001;Item A0001;55.87");
-            sb.AppendLine("A0002;Item A0002;45.32");
-            sb.AppendLine("A0003;Item A0003;78.90");
-            sb.AppendLine("A0004;Item A0004;12.34");
-            sb.AppendLine("A0005;Item A0005;67.89");
-            sb.AppendLine("A0006;Item A0006;23.45");
-            sb.AppendLine("A0007;Item A0007;89.01");
-            txtData.Text = sb.ToString();
+            string sql = $@"
+SELECT TOP 1000
+    CL.Nome        AS Cliente,
+    A.Descricao    AS Artigo,
+    SUM(l.Quantidade) AS QuantidadeTotal,
+    SUM(l.PrecUnit * l.Quantidade) AS TotalLiquido,
+	YEAR(c.data)   AS Ano,	
+	MONTH(c.data)  AS Mes	
+FROM CabecDoc c
+INNER JOIN LinhasDoc l
+    ON l.IdCabecDoc = c.Id
+INNER JOIN Artigo A 
+    ON A.Artigo = l.Artigo
+INNER JOIN Clientes CL 
+    ON CL.Cliente = c.Entidade
+WHERE 
+    c.Data >= '{_dataInicio:yyyy-MM-dd}'
+    AND c.Data <= '{_dataFim:yyyy-MM-dd}'
+    AND c.TipoDoc IN ('FA', 'FR', 'VD') 
+GROUP BY
+    CL.Nome,
+    A.Descricao,
+	YEAR(c.data),
+	MONTH(c.data)
+ORDER BY
+    CL.Nome,
+    A.Descricao,
+	YEAR(c.data),
+	MONTH(c.data);";
 
-            txtPrompt.Text = "Sort from most expensive to least expensive.";
+            txtContext.Text = @"O contexto dos dados contém as vendas com a faturação aos clientes agrupadas por artigo com o total das quantidades e valores das vendas faturadas. 
+A tabela contém as colunas para este contexto: 
+[Cliente] que indica o nome do cliente; 
+[Artigo] que representa o nome do artigo; 
+[QuantidadeTotal] que representa a quantidade total comprada pelo cliente para o artigo; 
+[TotalLiquido] que indica a faturação total desse artigo ao cliente.";
+
+            DataTable resultado = PriEngine.Engine.ConsultaDataTable(sql);
+            txtData.Text = DataTableToCsv(resultado);
+
+            txtPrompt.Text = "Analisa e coloca 3 insights em pt-PT dos dados de vendas e identifica a faturação dos 5 clientes com maior volume de vendas.";
+        }
+
+        public static string DataTableToCsv(DataTable table)
+        {
+            var sb = new StringBuilder();
+
+            if (table == null || table.Columns.Count == 0)
+                return string.Empty;
+
+            // Cabeçalhos
+            for (int i = 0; i < table.Columns.Count; i++)
+            {
+                sb.Append(table.Columns[i].ColumnName);
+                if (i < table.Columns.Count - 1)
+                    sb.Append(";");
+            }
+            sb.AppendLine();
+
+            // Linhas
+            foreach (DataRow row in table.Rows)
+            {
+                for (int i = 0; i < table.Columns.Count; i++)
+                {
+                    var valor = row[i]?.ToString();
+
+                    // Escapar valores com ;, aspas ou newline
+                    if (valor != null && (valor.Contains(";") || valor.Contains("\"") || valor.Contains("\n")))
+                    {
+                        valor = "\"" + valor.Replace("\"", "\"\"") + "\"";
+                    }
+
+                    sb.Append(valor);
+
+                    if (i < table.Columns.Count - 1)
+                        sb.Append(";");
+                }
+
+                sb.AppendLine();
+            }
+
+            return sb.ToString();
         }
 
         private void btClose_Click(object sender, EventArgs e)

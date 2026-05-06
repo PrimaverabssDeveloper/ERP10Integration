@@ -127,7 +127,7 @@
             // 
             // btnSend
             // 
-            this.btnSend.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnSend.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnSend.BackColor = System.Drawing.Color.WhiteSmoke;
             this.btnSend.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnSend.Location = new System.Drawing.Point(504, 319);
@@ -142,32 +142,43 @@
             // txtPrompt
             // 
             this.txtPrompt.AcceptsReturn = true;
+            this.txtPrompt.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtPrompt.Location = new System.Drawing.Point(9, 233);
             this.txtPrompt.Multiline = true;
             this.txtPrompt.Name = "txtPrompt";
+            this.txtPrompt.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.txtPrompt.Size = new System.Drawing.Size(610, 80);
             this.txtPrompt.TabIndex = 14;
             // 
             // txtData
             // 
             this.txtData.AcceptsReturn = true;
+            this.txtData.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtData.Location = new System.Drawing.Point(9, 134);
             this.txtData.Multiline = true;
             this.txtData.Name = "txtData";
+            this.txtData.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.txtData.Size = new System.Drawing.Size(610, 80);
             this.txtData.TabIndex = 12;
             // 
             // txtContext
             // 
             this.txtContext.AcceptsReturn = true;
+            this.txtContext.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtContext.Location = new System.Drawing.Point(9, 34);
             this.txtContext.Multiline = true;
             this.txtContext.Name = "txtContext";
+            this.txtContext.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.txtContext.Size = new System.Drawing.Size(610, 80);
             this.txtContext.TabIndex = 10;
             // 
             // lblPrompt
             // 
+            this.lblPrompt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lblPrompt.AutoSize = true;
             this.lblPrompt.Location = new System.Drawing.Point(6, 217);
             this.lblPrompt.Name = "lblPrompt";
@@ -212,10 +223,8 @@
             this.Controls.Add(this.pnlBottom);
             this.Controls.Add(this.pnlHeader);
             this.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MaximizeBox = false;
-            this.MinimizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(400, 500);
             this.Name = "frmPromptFunction";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "PRIMAVERA v10 - Platform Samples";
