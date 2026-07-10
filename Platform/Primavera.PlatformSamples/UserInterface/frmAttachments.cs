@@ -49,11 +49,11 @@ namespace Primavera.PlatformSamples.UserInterface
 
                 switch (cbbCategory.SelectedIndex)
                 {
-                    case 1:
+                    case 0:
                         tabela = EnumTabelaAnexos.anxClientes;
                         break;
                     default:
-                        tabela = EnumTabelaAnexos.anxOutrosTerceiros;
+                        tabela = EnumTabelaAnexos.anxFornecedores;
                         break;
                 }
 

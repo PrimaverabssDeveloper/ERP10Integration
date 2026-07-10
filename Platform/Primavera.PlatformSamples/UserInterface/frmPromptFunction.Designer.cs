@@ -36,6 +36,8 @@
             this.pnlBottom = new System.Windows.Forms.Panel();
             this.btClose = new System.Windows.Forms.Button();
             this.grbAlerts = new System.Windows.Forms.GroupBox();
+            this.lblExecutionType = new System.Windows.Forms.Label();
+            this.cboExecutionType = new System.Windows.Forms.ComboBox();
             this.btnSend = new System.Windows.Forms.Button();
             this.txtPrompt = new System.Windows.Forms.TextBox();
             this.txtData = new System.Windows.Forms.TextBox();
@@ -112,6 +114,8 @@
             this.grbAlerts.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.grbAlerts.Controls.Add(this.lblExecutionType);
+            this.grbAlerts.Controls.Add(this.cboExecutionType);
             this.grbAlerts.Controls.Add(this.btnSend);
             this.grbAlerts.Controls.Add(this.txtPrompt);
             this.grbAlerts.Controls.Add(this.txtData);
@@ -124,6 +128,24 @@
             this.grbAlerts.Size = new System.Drawing.Size(625, 355);
             this.grbAlerts.TabIndex = 4;
             this.grbAlerts.TabStop = false;
+            // 
+            // lblExecutionType
+            // 
+            this.lblExecutionType.AutoSize = true;
+            this.lblExecutionType.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.lblExecutionType.Location = new System.Drawing.Point(6, 14);
+            this.lblExecutionType.Name = "lblExecutionType";
+            this.lblExecutionType.Size = new System.Drawing.Size(60, 13);
+            this.lblExecutionType.TabIndex = 21;
+            this.lblExecutionType.Text = "Execution:";
+            // 
+            // cboExecutionType
+            // 
+            this.cboExecutionType.FormattingEnabled = true;
+            this.cboExecutionType.Location = new System.Drawing.Point(128, 11);
+            this.cboExecutionType.Name = "cboExecutionType";
+            this.cboExecutionType.Size = new System.Drawing.Size(160, 21);
+            this.cboExecutionType.TabIndex = 22;
             // 
             // btnSend
             // 
@@ -169,11 +191,11 @@
             this.txtContext.AcceptsReturn = true;
             this.txtContext.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtContext.Location = new System.Drawing.Point(9, 34);
+            this.txtContext.Location = new System.Drawing.Point(9, 51);
             this.txtContext.Multiline = true;
             this.txtContext.Name = "txtContext";
             this.txtContext.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtContext.Size = new System.Drawing.Size(610, 80);
+            this.txtContext.Size = new System.Drawing.Size(610, 63);
             this.txtContext.TabIndex = 10;
             // 
             // lblPrompt
@@ -198,7 +220,7 @@
             // lblContext
             // 
             this.lblContext.AutoSize = true;
-            this.lblContext.Location = new System.Drawing.Point(6, 18);
+            this.lblContext.Location = new System.Drawing.Point(6, 35);
             this.lblContext.Name = "lblContext";
             this.lblContext.Size = new System.Drawing.Size(115, 13);
             this.lblContext.TabIndex = 9;
@@ -254,5 +276,7 @@
         private System.Windows.Forms.TextBox txtPrompt;
         private System.Windows.Forms.TextBox txtData;
         private System.Windows.Forms.Label lblPrompt;
+        private System.Windows.Forms.Label lblExecutionType;
+        private System.Windows.Forms.ComboBox cboExecutionType;
     }
 }

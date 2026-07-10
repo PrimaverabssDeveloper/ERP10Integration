@@ -1,17 +1,29 @@
-﻿using System;
+﻿using StdBE100;
+using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Text;
 using System.Windows.Forms;
+using static StdBE100.StdBETipos;
 
 namespace Primavera.PlatformSamples.UserInterface
 {
     public partial class frmPromptFunction : Form
     {
+        private DataTable queryResult;
+
         public frmPromptFunction()
         {
             InitializeComponent();
 
-            DateTime _dataInicio = new DateTime(DateTime.Now.Year, 1, 1); ;
+            cboExecutionType.DropDownStyle = ComboBoxStyle.DropDownList;
+            cboExecutionType.ValueMember = "Key";
+            cboExecutionType.DisplayMember = "Value";
+            cboExecutionType.Items.Add(new KeyValuePair<EnumSmartActionExecutionType, string>(EnumSmartActionExecutionType.WithCalculations, "Calculations required"));
+            cboExecutionType.Items.Add(new KeyValuePair<EnumSmartActionExecutionType, string>(EnumSmartActionExecutionType.WithoutCalculations, "No calculations required"));
+            cboExecutionType.SelectedIndex = 0;
+
+            DateTime _dataInicio = new DateTime(2024, 1, 1); ;
             DateTime _dataFim = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1).AddMonths(1).AddDays(-1);
 
             string sql = $@"
@@ -51,51 +63,10 @@ A tabela contém as colunas para este contexto:
 [QuantidadeTotal] que representa a quantidade total comprada pelo cliente para o artigo; 
 [TotalLiquido] que indica a faturação total desse artigo ao cliente.";
 
-            DataTable resultado = PriEngine.Engine.ConsultaDataTable(sql);
-            txtData.Text = DataTableToCsv(resultado);
+            queryResult = PriEngine.Engine.ConsultaDataTable(sql);
+            txtData.Text = PriEngine.Platform.Utils.DataTableToCSV(queryResult);
 
             txtPrompt.Text = "Analisa e coloca 3 insights em pt-PT dos dados de vendas e identifica a faturação dos 5 clientes com maior volume de vendas.";
-        }
-
-        public static string DataTableToCsv(DataTable table)
-        {
-            var sb = new StringBuilder();
-
-            if (table == null || table.Columns.Count == 0)
-                return string.Empty;
-
-            // Cabeçalhos
-            for (int i = 0; i < table.Columns.Count; i++)
-            {
-                sb.Append(table.Columns[i].ColumnName);
-                if (i < table.Columns.Count - 1)
-                    sb.Append(";");
-            }
-            sb.AppendLine();
-
-            // Linhas
-            foreach (DataRow row in table.Rows)
-            {
-                for (int i = 0; i < table.Columns.Count; i++)
-                {
-                    var valor = row[i]?.ToString();
-
-                    // Escapar valores com ;, aspas ou newline
-                    if (valor != null && (valor.Contains(";") || valor.Contains("\"") || valor.Contains("\n")))
-                    {
-                        valor = "\"" + valor.Replace("\"", "\"\"") + "\"";
-                    }
-
-                    sb.Append(valor);
-
-                    if (i < table.Columns.Count - 1)
-                        sb.Append(";");
-                }
-
-                sb.AppendLine();
-            }
-
-            return sb.ToString();
         }
 
         private void btClose_Click(object sender, EventArgs e)
@@ -126,8 +97,34 @@ A tabela contém as colunas para este contexto:
                 return;
             }
 
-            string result = PriEngine.Platform.InterfacePublico.Pulse.UserPromptFunction(txtContext.Text, txtData.Text, txtPrompt.Text);
-            PriEngine.Platform.MensagensDialogos.MostraMensagem(StdPlatBS100.StdBSTipos.TipoMsg.PRI_SimplesOk, "Prompt Function result:", StdBE100.StdBETipos.IconId.PRI_Informativo, result);
+            var previousCursor = Cursor.Current;
+
+            try
+            {
+                Cursor.Current = Cursors.WaitCursor;
+
+                EnumSmartActionExecutionType executionType = ((KeyValuePair<EnumSmartActionExecutionType, string>)cboExecutionType.SelectedItem).Key;
+
+                List<StdBEUserPromptFunctionContext> contexts = new List<StdBEUserPromptFunctionContext>()
+                {
+                    new StdBEUserPromptFunctionContext()
+                    {
+                        Background = txtContext.Text,
+                        Data = queryResult
+                    }
+                };
+
+                string result = PriEngine.Platform.InterfacePublico.Pulse.UserPromptFunction(contexts, txtPrompt.Text, executionType);
+                PriEngine.Platform.MensagensDialogos.MostraMensagem(StdPlatBS100.StdBSTipos.TipoMsg.PRI_SimplesOk, "Prompt Function result:", StdBE100.StdBETipos.IconId.PRI_Informativo, result);
+            }
+            catch (Exception ex)
+            {
+                PriEngine.Platform.MensagensDialogos.MostraMensagem(StdPlatBS100.StdBSTipos.TipoMsg.PRI_SimplesOk, ex.Message, StdBE100.StdBETipos.IconId.PRI_Informativo);
+            }
+            finally
+            {
+                Cursor.Current = previousCursor;
+            }
         }
     }
 }

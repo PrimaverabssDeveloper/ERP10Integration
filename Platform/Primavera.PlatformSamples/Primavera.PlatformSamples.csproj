@@ -68,6 +68,11 @@
     <Reference Include="IStdPlatBS100, Version=10.0.0.0, Culture=neutral, PublicKeyToken=11cd844aca152173">
       <Private>False</Private>
     </Reference>
+    <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files\PRIMAVERA\SG100\Apl\Newtonsoft.Json.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="Primavera.Platform.Helpers">
       <HintPath>C:\Program Files\PRIMAVERA\SG100\Apl\Primavera.Platform.Helpers.dll</HintPath>
       <Private>False</Private>
@@ -87,6 +92,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -107,6 +113,11 @@
     <Compile Include="Disposable\DisposableBase.cs" />
     <Compile Include="Engine\PriEngine.cs" />
     <Compile Include="Helpers\ExceptionHelper.cs" />
+    <Compile Include="Models\Cliente.cs" />
+    <Compile Include="Resources\AppIcon.cs" />
+    <Compile Include="Services\MarkdownConverter.cs" />
+    <Compile Include="Services\PrimaveraService.cs" />
+    <Compile Include="Services\ReportTemplate.cs" />
     <Compile Include="UserInterface\frmPromptFunction.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -139,6 +150,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UserInterface\frmPromptFunctionCRM.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserInterface\frmPromptFunctionCRM.Designer.cs">
+      <DependentUpon>frmPromptFunctionCRM.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="UserInterface\frmPromptFunction.resx">
       <DependentUpon>frmPromptFunction.cs</DependentUpon>
     </EmbeddedResource>
@@ -164,6 +181,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="UserInterface\frmPromptFunctionCRM.resx">
+      <DependentUpon>frmPromptFunctionCRM.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -193,6 +213,7 @@
     <None Include="Resources\Icon_Message.png" />
     <None Include="Resources\Icon_Success.png" />
     <None Include="Resources\Icon_Alert.png" />
+    <Content Include="Resources\app.ico" />
     <Content Include="Resources\Primavera_.png" />
   </ItemGroup>
   <ItemGroup>
