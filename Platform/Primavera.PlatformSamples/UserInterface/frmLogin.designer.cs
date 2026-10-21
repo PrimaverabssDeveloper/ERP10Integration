@@ -38,28 +38,29 @@
             this.txtempresa = new System.Windows.Forms.TextBox();
             this.txtuser = new System.Windows.Forms.TextBox();
             this.pnlActions = new System.Windows.Forms.Panel();
-            this.btLogging = new System.Windows.Forms.Button();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.btPromptFunction2 = new System.Windows.Forms.Button();
+            this.btPromptFunction3 = new System.Windows.Forms.Button();
             this.btPromptFunction = new System.Windows.Forms.Button();
+            this.btLogging = new System.Windows.Forms.Button();
             this.btAlerts = new System.Windows.Forms.Button();
             this.btAttachs = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.txtInstance = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.picLogo = new System.Windows.Forms.PictureBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.btPromptFunction2 = new System.Windows.Forms.Button();
             this.pnlActions.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picLogo)).BeginInit();
-            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblStatus
             // 
             this.lblStatus.AutoSize = true;
             this.lblStatus.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblStatus.ForeColor = System.Drawing.Color.White;
-            this.lblStatus.Location = new System.Drawing.Point(26, 353);
+            this.lblStatus.ForeColor = System.Drawing.Color.Black;
+            this.lblStatus.Location = new System.Drawing.Point(26, 400);
             this.lblStatus.Name = "lblStatus";
             this.lblStatus.Size = new System.Drawing.Size(239, 13);
             this.lblStatus.TabIndex = 2;
@@ -146,25 +147,53 @@
             this.pnlActions.Controls.Add(this.btAttachs);
             this.pnlActions.Location = new System.Drawing.Point(23, 53);
             this.pnlActions.Name = "pnlActions";
-            this.pnlActions.Size = new System.Drawing.Size(370, 323);
+            this.pnlActions.Size = new System.Drawing.Size(370, 384);
             this.pnlActions.TabIndex = 17;
             this.pnlActions.Visible = false;
             // 
-            // btLogging
+            // groupBox2
             // 
-            this.btLogging.BackColor = System.Drawing.Color.DodgerBlue;
-            this.btLogging.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btLogging.ForeColor = System.Drawing.Color.White;
-            this.btLogging.Image = global::Primavera.PlatformSamples.Properties.Resources.Document;
-            this.btLogging.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btLogging.Location = new System.Drawing.Point(18, 154);
-            this.btLogging.Name = "btLogging";
-            this.btLogging.Size = new System.Drawing.Size(334, 64);
-            this.btLogging.TabIndex = 2;
-            this.btLogging.Text = "Logging Sample";
-            this.btLogging.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btLogging.UseVisualStyleBackColor = false;
-            this.btLogging.Click += new System.EventHandler(this.btLogging_Click);
+            this.groupBox2.Controls.Add(this.btPromptFunction2);
+            this.groupBox2.Controls.Add(this.btPromptFunction3);
+            this.groupBox2.Controls.Add(this.btPromptFunction);
+            this.groupBox2.Location = new System.Drawing.Point(18, 224);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(334, 157);
+            this.groupBox2.TabIndex = 3;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Execute Prompt Function Samples";
+            // 
+            // btPromptFunction2
+            // 
+            this.btPromptFunction2.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btPromptFunction2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btPromptFunction2.ForeColor = System.Drawing.Color.White;
+            this.btPromptFunction2.Image = global::Primavera.PlatformSamples.Properties.Resources.Notification;
+            this.btPromptFunction2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btPromptFunction2.Location = new System.Drawing.Point(170, 21);
+            this.btPromptFunction2.Name = "btPromptFunction2";
+            this.btPromptFunction2.Size = new System.Drawing.Size(158, 64);
+            this.btPromptFunction2.TabIndex = 0;
+            this.btPromptFunction2.Text = "Client Risk Sample";
+            this.btPromptFunction2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btPromptFunction2.UseVisualStyleBackColor = false;
+            this.btPromptFunction2.Click += new System.EventHandler(this.btPromptFunction2_Click);
+            // 
+            // btPromptFunction3
+            // 
+            this.btPromptFunction3.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btPromptFunction3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btPromptFunction3.ForeColor = System.Drawing.Color.White;
+            this.btPromptFunction3.Image = global::Primavera.PlatformSamples.Properties.Resources.Notification;
+            this.btPromptFunction3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btPromptFunction3.Location = new System.Drawing.Point(6, 88);
+            this.btPromptFunction3.Name = "btPromptFunction3";
+            this.btPromptFunction3.Size = new System.Drawing.Size(322, 64);
+            this.btPromptFunction3.TabIndex = 0;
+            this.btPromptFunction3.Text = "Files Sample";
+            this.btPromptFunction3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btPromptFunction3.UseVisualStyleBackColor = false;
+            this.btPromptFunction3.Click += new System.EventHandler(this.btPromptFunction3_Click);
             // 
             // btPromptFunction
             // 
@@ -181,6 +210,22 @@
             this.btPromptFunction.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btPromptFunction.UseVisualStyleBackColor = false;
             this.btPromptFunction.Click += new System.EventHandler(this.btPromptFunction_Click);
+            // 
+            // btLogging
+            // 
+            this.btLogging.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btLogging.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btLogging.ForeColor = System.Drawing.Color.White;
+            this.btLogging.Image = global::Primavera.PlatformSamples.Properties.Resources.Document;
+            this.btLogging.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btLogging.Location = new System.Drawing.Point(18, 154);
+            this.btLogging.Name = "btLogging";
+            this.btLogging.Size = new System.Drawing.Size(334, 64);
+            this.btLogging.TabIndex = 2;
+            this.btLogging.Text = "Logging Sample";
+            this.btLogging.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btLogging.UseVisualStyleBackColor = false;
+            this.btLogging.Click += new System.EventHandler(this.btLogging_Click);
             // 
             // btAlerts
             // 
@@ -227,7 +272,7 @@
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Location = new System.Drawing.Point(254, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(349, 309);
+            this.groupBox1.Size = new System.Drawing.Size(349, 383);
             this.groupBox1.TabIndex = 18;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Login:";
@@ -263,44 +308,17 @@
             this.picLogo.TabIndex = 16;
             this.picLogo.TabStop = false;
             // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.btPromptFunction2);
-            this.groupBox2.Controls.Add(this.btPromptFunction);
-            this.groupBox2.Location = new System.Drawing.Point(18, 224);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(334, 89);
-            this.groupBox2.TabIndex = 3;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Execute Prompt Function Samples";
-            // 
-            // btPromptFunction2
-            // 
-            this.btPromptFunction2.BackColor = System.Drawing.Color.DodgerBlue;
-            this.btPromptFunction2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btPromptFunction2.ForeColor = System.Drawing.Color.White;
-            this.btPromptFunction2.Image = global::Primavera.PlatformSamples.Properties.Resources.Notification;
-            this.btPromptFunction2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btPromptFunction2.Location = new System.Drawing.Point(170, 21);
-            this.btPromptFunction2.Name = "btPromptFunction2";
-            this.btPromptFunction2.Size = new System.Drawing.Size(158, 64);
-            this.btPromptFunction2.TabIndex = 0;
-            this.btPromptFunction2.Text = "Client Risk Sample";
-            this.btPromptFunction2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btPromptFunction2.UseVisualStyleBackColor = false;
-            this.btPromptFunction2.Click += new System.EventHandler(this.btPromptFunction2_Click);
-            // 
             // frmLogin
             // 
             this.AcceptButton = this.cmdLogin;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(615, 333);
+            this.ClientSize = new System.Drawing.Size(615, 427);
             this.Controls.Add(this.pnlActions);
             this.Controls.Add(this.picLogo);
-            this.Controls.Add(this.lblStatus);
             this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.lblStatus);
             this.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -312,10 +330,10 @@
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form1_FormClosed);
             this.Load += new System.EventHandler(this.frmLogin_Load);
             this.pnlActions.ResumeLayout(false);
+            this.groupBox2.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picLogo)).EndInit();
-            this.groupBox2.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -341,5 +359,6 @@
         private System.Windows.Forms.Button btPromptFunction;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Button btPromptFunction2;
+        private System.Windows.Forms.Button btPromptFunction3;
     }
 }

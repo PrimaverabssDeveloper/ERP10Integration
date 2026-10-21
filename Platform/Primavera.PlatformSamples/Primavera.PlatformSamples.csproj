@@ -118,6 +118,12 @@
     <Compile Include="Services\MarkdownConverter.cs" />
     <Compile Include="Services\PrimaveraService.cs" />
     <Compile Include="Services\ReportTemplate.cs" />
+    <Compile Include="UserInterface\frmPromptFunctionFiles.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserInterface\frmPromptFunctionFiles.Designer.cs">
+      <DependentUpon>frmPromptFunctionFiles.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserInterface\frmPromptFunction.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -156,6 +162,10 @@
     <Compile Include="UserInterface\frmPromptFunctionCRM.Designer.cs">
       <DependentUpon>frmPromptFunctionCRM.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="UserInterface\frmPromptFunctionFiles.resx">
+      <DependentUpon>frmPromptFunctionFiles.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="UserInterface\frmPromptFunction.resx">
       <DependentUpon>frmPromptFunction.cs</DependentUpon>
     </EmbeddedResource>
@@ -199,6 +209,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="RelatorioFaturacao.pdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="Resources\warning.png" />
     <None Include="Resources\tip.png" />
     <None Include="Resources\success.png" />
@@ -228,5 +241,6 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
